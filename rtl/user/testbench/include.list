@@ -1,0 +1,5 @@
+-v ../RTL/global_buffer.v
+-v ./PATTERN.v
+-v ../RTL/systolic_array.v
+-v ../RTL/TPU_fsm.v
+-v ../RTL/block.v
