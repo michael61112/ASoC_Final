@@ -80,9 +80,12 @@ module systolic_array
 	reg [3:0] count;
 	reg [2:0] 							state;
 	reg	done_temp;
-	
-	assign state_SA_o = state;
-	assign result0_o = result7;
+
+    reg [31:0]local_buffer_A[3:0];
+    reg [31:0]local_buffer_B[3:0];
+	reg [127:0]local_buffer_C[3:0];
+
+	wire rst;
 	wire [7:0] inp_north0, inp_north1, inp_north2, inp_north3;
 	wire [7:0] inp_west0, inp_west4, inp_west8, inp_west12;
 	wire [7:0] outp_south0, outp_south1, outp_south2, outp_south3, outp_south4, outp_south5, outp_south6, outp_south7, outp_south8, outp_south9, outp_south10, outp_south11, outp_south12, outp_south13, outp_south14, outp_south15;
@@ -99,7 +102,8 @@ module systolic_array
 	assign inp_west8_o = inp_west8;
 	assign inp_west12_o = inp_west12;
 
-	wire rst;
+	assign state_SA_o = state;
+	assign result0_o = result7;
 	assign rst = ~sa_rst_n;
 	
 	block P0 (inp_north0, inp_west0, clk, rst, outp_south0, outp_east0, result0);
@@ -244,9 +248,7 @@ integer addr_w0, addr_w4, addr_w8, addr_w12;
 	end
 
 	//reg [15:0]				 i, j;
-    reg [31:0]local_buffer_A[3:0];
-    reg [31:0]local_buffer_B[3:0];
-	reg [127:0]local_buffer_C[3:0];
+
 
 	assign local_buffer_C0 = local_buffer_C[0];
 	assign local_buffer_C1 = local_buffer_C[1];

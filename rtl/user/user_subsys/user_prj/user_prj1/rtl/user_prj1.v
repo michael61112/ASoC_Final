@@ -53,25 +53,290 @@ module USER_PRJ1 #( parameter pUSER_PROJECT_SIDEBAND_WIDTH   = 5,
   input  wire                        uck2_rst_n
 );
 
+reg rvalid_r;
+reg ap_start, ap_idle, ap_done;
+reg task_r, task_w;
 
-assign awready       = 1'b0;
-assign arready       = 1'b0;
-assign wready        = 1'b0;
-assign rvalid        = 1'b0;
-assign rdata         = {pDATA_WIDTH{1'b0}};
-assign ss_tready     = 1'b0;
-assign sm_tvalid     = 1'b0;
-assign sm_tdata      = {pDATA_WIDTH{1'b0}};
-assign sm_tid        = 3'b0;
-`ifdef USER_PROJECT_SIDEBAND_SUPPORT
-  assign sm_tupsb      = 5'b0;
-`endif
-assign sm_tstrb      = 4'b0;
-assign sm_tkeep      = 1'b0;
-assign sm_tlast      = 1'b0;
-assign low__pri_irq  = 1'b0;
-assign High_pri_req  = 1'b0;
-assign la_data_o     = 24'b0;
+reg [7:0] M, K, N;
+reg [1:0] buf_sel;
+reg [15:0] buf_sizeA, buf_sizeB, buf_sizeC;
 
+// AXIlite
+reg [(pADDR_WIDTH-1):0] addr_r, addr_w;
+reg [(pDATA_WIDTH-1) : 0] rdata_r;
+reg [(pADDR_WIDTH-1):0]  buf_A_address, buf_B_address, buf_C_address;
+
+reg [(pDATA_WIDTH-1) : 0] A_data_in, B_data_in, A_data_out, B_data_out, buf_A_din, buf_B_din;
+reg [(pDATA_WIDTH*4-1) : 0] C_data_in, buf_C_dout, C_data_out;
+
+wire [(pADDR_WIDTH-1):0]  A_index, B_index, C_index;
+wire [(pADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
+
+//=====================================================================
+//   DATA PATH & CONTROL
+//=====================================================================
+//---------- AXI-lite slave Interface ----------
+// Address map
+// 0x00: config ([2]ap_idle, [1]ap_done, [0]ap_start)
+// 
+// 0x10: M
+// 0x14: K
+// 0x18: N
+//
+// 0x20: buf_A_address
+// 0x24: buf_A_din
+//
+// 0x30: buf_B_address
+// 0x34: buf_B_din
+//
+// 0x40: buf_C_address
+// 0x44: buf_C_dout_0
+// 0x48: buf_C_dout_1
+// 0x4c: buf_C_dout_2
+// 0x50: buf_C_dout_3
+
+// Read: read mmio / tap RAM
+// Address read channel
+assign arready = ~task_r;
+always @(posedge axis_clk or negedge axis_rst_n) begin
+    if (~axis_rst_n)
+        addr_r <= 'd0;
+    else begin
+        if (arvalid & arready)
+            addr_r <= araddr;
+    end
+end
+always @(posedge axis_clk or negedge axis_rst_n) begin
+    if (~axis_rst_n)
+        task_r <= 1'b0;
+    else begin
+        case (task_r)
+            1'b0: begin
+                if (arvalid)
+                    task_r <= 1'b1;
+            end
+            1'b1: begin
+                if (rready & rvalid)
+                    task_r <= 1'b0;
+            end
+        endcase
+    end
+end
+// Read channel     * What happen if host acess tap_RAM in run state?
+// assign rvalid_r = task_r;
+always @(*) begin
+    if (task_r) begin
+        case (addr_r)
+            'h00: begin
+                rvalid_r = 1'b1;
+                rdata_r = {5'b0, ap_idle, ap_done, ap_start};
+            end
+            'h10: begin
+                rvalid_r = 1'b1;
+                rdata_r = M;
+            end
+            'h14: begin
+                rvalid_r = 1'b1;
+                rdata_r = K;
+            end
+            'h18: begin
+                rvalid_r = 1'b1;
+                rdata_r = N;
+            end
+            'h20: begin
+                rvalid_r = 1'b1;
+                rdata_r = buf_A_address;
+            end
+            'h24: begin
+                rvalid_r = 1'b1;
+                rdata_r = buf_A_din;
+            end
+            'h30: begin
+                rvalid_r = 1'b1;
+                rdata_r = buf_B_address;
+            end
+            'h34: begin
+                rvalid_r = 1'b1;
+                rdata_r = buf_B_din;
+            end
+            'h40: begin
+                rvalid_r = 1'b1;
+                rdata_r = buf_C_address;
+            end
+            'h44: begin
+                rvalid_r = 1'b1;
+                rdata_r = C_data_out[31:0];
+            end
+            'h48: begin
+                rvalid_r = 1'b1;
+                rdata_r = C_data_out[63:32];
+            end
+            'h4c: begin
+                rvalid_r = 1'b1;
+                rdata_r = C_data_out[95:64];
+            end
+            'h50: begin
+                rvalid_r = 1'b1;
+                rdata_r = C_data_out[127:96];
+            end
+            default: begin
+                // read tap bram
+                rvalid_r = 1'b0;
+                rdata_r = 'd0;
+            end
+        endcase
+    end
+    else begin
+        rvalid_r = 1'b0;
+        rdata_r = 'd0;
+    end
+end
+
+// Write: write configation to mmio / tap RAM
+// Address write channel
+assign awready = ~task_w;
+always @(posedge axis_clk or negedge axis_rst_n) begin
+    if (~axis_rst_n)
+        addr_w <= 'd0;
+    else begin
+        if (awvalid)
+            addr_w <= awaddr;
+    end
+end
+always @(posedge axis_clk or negedge axis_rst_n) begin
+    if (~axis_rst_n)
+        task_w <= 1'b0;
+    else begin
+        case (task_w)
+            1'b0: begin
+                if (awvalid)
+                    task_w <= 1'b1;
+            end
+            1'b1: begin
+                if (wvalid)
+                    task_w <= 1'b0;
+            end
+        endcase
+    end
+end
+// Write channel
+assign wready = task_w;
+
+//---------- Block level protocol ----------
+// ap_start: axilite slave write
+always @(posedge axis_clk or negedge axis_rst_n) begin
+    if (~axis_rst_n)
+        ap_start <= 1'b0;
+    else begin
+        // set by host
+        if (task_w & wvalid) begin
+            ap_start <= (addr_w == 'h00) ? wdata[0] : ap_start;
+        end
+        // reset by engine
+        else if (ap_start)
+            ap_start <= 1'b0;
+    end
+end
+
+//---------- Port level protocol ----------
+// len: axilite slave write
+always @(posedge axis_clk or negedge axis_rst_n) begin
+    if (~axis_rst_n) begin
+        M <= 'd0;
+        K <= 'd0;
+        N <= 'd0;
+        buf_A_address <= 'h0;
+        buf_A_din <= 'h0;
+        buf_B_address <= 'h0;
+        buf_B_din <= 'h0;
+        buf_C_address <= 'h0;
+        //buf_C_dout <= 'h0;
+    end
+    else begin
+        if (task_w & wvalid) begin
+            M <= (addr_w == 'h10) ? wdata : M;
+            K <= (addr_w == 'h14) ? wdata : K;
+            N <= (addr_w == 'h18) ? wdata : N;
+            buf_A_address <= (addr_w == 'h20) ? wdata : buf_A_address;
+            buf_A_din <= (addr_w == 'h24) ? wdata : buf_A_din;
+            buf_B_address <= (addr_w == 'h30) ? wdata : buf_B_address;
+            buf_B_din <= (addr_w == 'h34) ? wdata : buf_B_din;
+            buf_C_address <= (addr_w == 'h40) ? wdata : buf_C_address;
+            //buf_C_dout <= (addr_w == 'h44) ? wdata : buf_C_dout;
+        end
+    end
+end
+
+assign rvalid = rvalid_r;
+assign rdata = rdata_r;
+
+assign A_index_mux = (busy == 1'b1) ? A_index : buf_A_address;
+assign B_index_mux = (busy == 1'b1) ? B_index : buf_B_address;
+assign C_index_mux = (busy == 1'b1) ? C_index : buf_C_address;
+
+assign A_wr_en_mux = (busy == 1'b1) ? A_wr_en : 1'b1;
+assign B_wr_en_mux = (busy == 1'b1) ? B_wr_en : 1'b1;
+assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
+
+  global_buffer #(
+      .ADDR_BITS(pADDR_WIDTH),
+      .DATA_BITS(pDATA_WIDTH)
+  ) gbuff_A (
+      .clk(axi_clk),
+      .rst_n(axi_reset_n),
+      .wr_en(A_wr_en_mux),
+      .index(A_index_mux),
+      .data_in(buf_A_din), // from testbench
+      .data_out(A_data_out) // to TPU
+  );
+
+  global_buffer #(
+      .ADDR_BITS(pADDR_WIDTH),
+      .DATA_BITS(pDATA_WIDTH)
+  ) gbuff_B (
+      .clk(axi_clk),
+      .rst_n(axi_reset_n),
+      .wr_en(B_wr_en_mux),
+      .index(B_index_mux),
+      .data_in(buf_B_din), // from testbench
+      .data_out(B_data_out)  // to TPU
+  );
+
+  global_buffer #(
+      .ADDR_BITS(pADDR_WIDTH),
+      .DATA_BITS(pDATA_WIDTH << 2)
+  ) gbuff_C (
+      .clk(axi_clk),
+      .rst_n(axi_reset_n),
+      .wr_en(C_wr_en_mux),
+      .index(C_index_mux),
+      .data_in(C_data_in),
+      .data_out(C_data_out)
+  );
+
+  TPU My_TPU (
+      .clk        (axi_clk),
+      .rst_n      (axi_reset_n),
+      .in_valid   (ap_start),
+      .K          (K),
+      .M          (M),
+      .N          (N),
+      .busy       (busy),
+      .ap_done    (ap_done),
+      .ap_idle    (ap_idle),
+      .A_wr_en    (A_wr_en),
+      .A_index    (A_index),
+      //.A_data_in  (A_data_in_TPU),
+      .A_data_out (A_data_out),
+      .B_wr_en    (B_wr_en),
+      .B_index    (B_index),
+      //.B_data_in  (B_data_in_TPU),
+      .B_data_out (B_data_out),
+      .C_wr_en    (C_wr_en),
+      .C_index    (C_index),
+      .C_data_in  (C_data_in)
+      //.C_data_out (C_data_out),
+      //.inputOffset(inputOffset)
+  );
 
 endmodule // USER_PRJ1
