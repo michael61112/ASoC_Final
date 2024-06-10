@@ -375,10 +375,18 @@ FSIC #(
   error_cnt = 0;
   check_cnt = 0;
 
+	$display("TPU test from SoC side");
   TPU_test_pattern(0);
   TPU_test_pattern(1);
   TPU_test_pattern(2);
   TPU_test_pattern(3);
+
+	$display("TPU test from FPGA side");
+  TPU_test_pattern_FPGA(0);
+  TPU_test_pattern_FPGA(1);
+  TPU_test_pattern_FPGA(2);
+  TPU_test_pattern_FPGA(3);
+
 
   $display("=============================================================================================");
   $display("=============================================================================================");
@@ -1056,10 +1064,6 @@ task TPU_test_pattern;
   $display("Program ap_start=0");
 	@(posedge soc_coreclk) soc_up_cfg_write(TPU_CTRL_OFFSET, 4'b0001, 32'd0); // in_valid = 1'b0;
 
-  K = 'bx;
-  M = 'bx;
-  N = 'bx;
-
   $display("Wait TPU is idle");
   tpu_waitIdle();  // reset_task;
 
@@ -1085,11 +1089,8 @@ task TPU_test_pattern;
   for(patcount = 0; patcount < PATNUM; patcount = patcount + 1) begin
 
       // read input
-      read_KMN;
-      read_A_Matrix;
-      read_B_Matrix;
-      read_golden;
-  
+      read_and_write_cfg_to_userprj_soc;
+
       // start to feed data
       repeat(3) @(negedge soc_coreclk);
       $display("patcount[%d] ap_start = 1", patcount);
@@ -1111,6 +1112,68 @@ task TPU_test_pattern;
 
 endtask
 
+	task TPU_test_pattern_FPGA;
+	  input [1:0] patternID;
+
+  $display("fsic_system_initial");
+  fsic_system_initial();  // rst_n = 1'b1;
+  
+  $display("Enable TPU IP");
+  user_project_select(1);
+
+  $display("Program ap_start=0");
+  fpga_axilite_write_req(FPGA_to_SOC_UP_BASE + TPU_CTRL_OFFSET,  4'b1111, 32'd0); // in_valid = 1'b0;
+
+  $display("Wait TPU is idle");
+  tpu_waitIdle();
+
+  case (patternID)
+    2'b00: begin
+      in_fd = $fopen("./pattern/pattern0/input.txt", "r");
+    end
+    2'b01: begin
+      in_fd = $fopen("./pattern/pattern1/input.txt", "r");
+    end
+    2'b10: begin
+      in_fd = $fopen("./pattern/pattern2/input.txt", "r");
+    end
+    2'b11: begin
+      in_fd = $fopen("./pattern/pattern3/input.txt", "r");
+    end
+  endcase
+
+// PATNUM
+  temp = $fscanf(in_fd, "%d", PATNUM);
+
+  for(patcount = 0; patcount < PATNUM; patcount = patcount + 1) begin
+
+      // read input
+      read_and_write_cfg_to_userprj_fpga;
+      repeat(100) @ (posedge fpga_coreclk);    //TODO fpga wait for write to soc
+
+      // start to feed data
+      repeat(3) @(negedge soc_coreclk);
+      $display("patcount[%d] ap_start = 1", patcount);
+      @(posedge soc_coreclk) soc_up_cfg_write(TPU_CTRL_OFFSET, 4'b0001, 32'd1); // in_valid = 1'b1;
+
+      @(negedge soc_coreclk);
+      $display("patcount[%d] ap_start = 0", patcount);
+      @(posedge soc_coreclk) soc_up_cfg_write(TPU_CTRL_OFFSET, 4'b0001, 32'd0); // in_valid = 1'b0;
+
+
+      wait_finished;
+      
+      golden_check;
+
+      repeat(5) @(negedge soc_coreclk);
+  end
+
+  YOU_PASS_task;
+
+	endtask
+
+///////////////////////////////////////////////////////////////////////////////
+
 // Wait TPU is idle
 task tpu_waitIdle;
   begin
@@ -1122,61 +1185,103 @@ task tpu_waitIdle;
   end
 endtask
 
-task read_KMN; begin
-    temp = $fscanf(in_fd, "%h", K_golden);
-    temp = $fscanf(in_fd, "%h", M_golden);
-    temp = $fscanf(in_fd, "%h", N_golden);
-    $display("M: %d, K: %d N: %d", M_golden, K_golden, N_golden);
+task read_and_write_cfg_to_userprj_soc;
 
-    soc_up_cfg_write(TPU_M_OFFSET, 4'b1111, M_golden);
-    soc_up_cfg_write(TPU_K_OFFSET, 4'b1111, K_golden);
-    soc_up_cfg_write(TPU_N_OFFSET, 4'b1111, N_golden);
-end endtask
+  // read_KMN
+  temp = $fscanf(in_fd, "%h", K_golden);
+  temp = $fscanf(in_fd, "%h", M_golden);
+  temp = $fscanf(in_fd, "%h", N_golden);
+  $display("M: %d, K: %d N: %d", M_golden, K_golden, N_golden);
+
+  soc_up_cfg_write(TPU_M_OFFSET, 4'b1111, M_golden);
+  soc_up_cfg_write(TPU_K_OFFSET, 4'b1111, K_golden);
+  soc_up_cfg_write(TPU_N_OFFSET, 4'b1111, N_golden);
+
+  // read_A_Matrix
+  nrow = (M_golden[1:0] !== 2'b00) ?  K_golden * ((M_golden>>2) + 1) : K_golden * (M_golden>>2);
+
+  for(i=0;i<nrow;i=i+1) begin
+    temp = $fscanf(in_fd, "%h %h %h %h", rbuf[3], rbuf[2], rbuf[1], rbuf[0]);
+    gbuff_A[i] = {rbuf[3], rbuf[2], rbuf[1], rbuf[0]};
+    $display("A[%d] = %h", i, gbuff_A[i]);
+
+    soc_up_cfg_write(TPU_BUFF_A_ADDR_OFFSET, 4'b1111, i);
+    soc_up_cfg_write(TPU_BUFF_A_DIN_OFFSET, 4'b1111, gbuff_A[i]);
+  end
+
+  // read_B_Matrix
+  nrow = (N_golden[1:0] !== 2'b00) ? K_golden * ((N_golden >> 2) + 1) : K_golden * (N_golden >> 2);
+
+  for(i=0;i<nrow;i=i+1) begin
+      temp = $fscanf(in_fd, "%h %h %h %h", rbuf[3], rbuf[2], rbuf[1], rbuf[0]);
+      gbuff_B[i] = {rbuf[3], rbuf[2], rbuf[1], rbuf[0]};
+      $display("B[%d] = %h", i, gbuff_B[i]);
+
+      soc_up_cfg_write(TPU_BUFF_B_ADDR_OFFSET, 4'b1111, i);
+      soc_up_cfg_write(TPU_BUFF_B_DIN_OFFSET, 4'b1111, gbuff_B[i]);
+  end
+
+  //read_golden
+  nrow = (N_golden[1:0] !== 2'b00) ? M_golden * ((N_golden>>2) + 1) : M_golden * (N_golden>>2);
+
+  for(i=0;i<nrow;i=i+1) begin
+      temp = $fscanf(in_fd, "%h %h %h %h", goldenbuf[3], goldenbuf[2], goldenbuf[1], goldenbuf[0]);
+      GOLDEN[i] = {goldenbuf[3], goldenbuf[2], goldenbuf[1], goldenbuf[0]};
+      $display("GOLDEN[%d] = %h %h %h %h", i, GOLDEN[i][127:96],  GOLDEN[i][95:64],  GOLDEN[i][63:32],  GOLDEN[i][31:0]);
+  end
+
+endtask
+
+task read_and_write_cfg_to_userprj_fpga;
+
+  // read_KMN
+  temp = $fscanf(in_fd, "%h", K_golden);
+  temp = $fscanf(in_fd, "%h", M_golden);
+  temp = $fscanf(in_fd, "%h", N_golden);
+  $display("M: %d, K: %d N: %d", M_golden, K_golden, N_golden);
+
+  fpga_axilite_write_req(FPGA_to_SOC_UP_BASE + TPU_M_OFFSET,  4'b1111, M_golden);
+  fpga_axilite_write_req(FPGA_to_SOC_UP_BASE + TPU_K_OFFSET,  4'b1111, K_golden);
+  fpga_axilite_write_req(FPGA_to_SOC_UP_BASE + TPU_N_OFFSET,  4'b1111, N_golden);
+
+  // read_A_Matrix
+  nrow = (M_golden[1:0] !== 2'b00) ?  K_golden * ((M_golden>>2) + 1) : K_golden * (M_golden>>2);
+
+  for(i=0;i<nrow;i=i+1) begin
+      temp = $fscanf(in_fd, "%h %h %h %h", rbuf[3], rbuf[2], rbuf[1], rbuf[0]);
+      gbuff_A[i] = {rbuf[3], rbuf[2], rbuf[1], rbuf[0]};
+      $display("A[%d] = %h", i, gbuff_A[i]);
+
+      fpga_axilite_write_req(FPGA_to_SOC_UP_BASE + TPU_BUFF_A_ADDR_OFFSET,  4'b1111, i);
+      fpga_axilite_write_req(FPGA_to_SOC_UP_BASE + TPU_BUFF_A_DIN_OFFSET,  4'b1111, gbuff_A[i]);
+  end
+
+  //repeat(100) @ (posedge fpga_coreclk);    //TODO fpga wait for write to soc
+
+  // read_B_Matrix
+  nrow = (N_golden[1:0] !== 2'b00) ? K_golden * ((N_golden >> 2) + 1) : K_golden * (N_golden >> 2);
+
+  for(i=0;i<nrow;i=i+1) begin
+      temp = $fscanf(in_fd, "%h %h %h %h", rbuf[3], rbuf[2], rbuf[1], rbuf[0]);
+      gbuff_B[i] = {rbuf[3], rbuf[2], rbuf[1], rbuf[0]};
+      $display("B[%d] = %h", i, gbuff_B[i]);
+
+      fpga_axilite_write_req(FPGA_to_SOC_UP_BASE + TPU_BUFF_B_ADDR_OFFSET,  4'b1111, i);
+      fpga_axilite_write_req(FPGA_to_SOC_UP_BASE + TPU_BUFF_B_DIN_OFFSET,  4'b1111, gbuff_B[i]);
+  end
+
+  //read_golden
+  nrow = (N_golden[1:0] !== 2'b00) ? M_golden * ((N_golden>>2) + 1) : M_golden * (N_golden>>2);
+
+  for(i=0;i<nrow;i=i+1) begin
+      temp = $fscanf(in_fd, "%h %h %h %h", goldenbuf[3], goldenbuf[2], goldenbuf[1], goldenbuf[0]);
+      GOLDEN[i] = {goldenbuf[3], goldenbuf[2], goldenbuf[1], goldenbuf[0]};
+      $display("GOLDEN[%d] = %h %h %h %h", i, GOLDEN[i][127:96],  GOLDEN[i][95:64],  GOLDEN[i][63:32],  GOLDEN[i][31:0]);
+  end
+
+endtask
 
 
-task read_A_Matrix; begin
-
-    nrow = (M_golden[1:0] !== 2'b00) ?  K_golden * ((M_golden>>2) + 1) : K_golden * (M_golden>>2);
-    
-    for(i=0;i<nrow;i=i+1) begin
-        temp = $fscanf(in_fd, "%h %h %h %h", rbuf[3], rbuf[2], rbuf[1], rbuf[0]);
-        gbuff_A[i] = {rbuf[3], rbuf[2], rbuf[1], rbuf[0]};
-        $display("A[%d] = %h", i, gbuff_A[i]);
-
-        soc_up_cfg_write(TPU_BUFF_A_ADDR_OFFSET, 4'b1111, i);
-        soc_up_cfg_write(TPU_BUFF_A_DIN_OFFSET, 4'b1111, gbuff_A[i]);
-    end
-
-end endtask
-
-
-task read_B_Matrix; begin
-
-    nrow = (N_golden[1:0] !== 2'b00) ? K_golden * ((N_golden >> 2) + 1) : K_golden * (N_golden >> 2);
-
-    for(i=0;i<nrow;i=i+1) begin
-        temp = $fscanf(in_fd, "%h %h %h %h", rbuf[3], rbuf[2], rbuf[1], rbuf[0]);
-        gbuff_B[i] = {rbuf[3], rbuf[2], rbuf[1], rbuf[0]};
-        $display("B[%d] = %h", i, gbuff_B[i]);
-
-        soc_up_cfg_write(TPU_BUFF_B_ADDR_OFFSET, 4'b1111, i);
-        soc_up_cfg_write(TPU_BUFF_B_DIN_OFFSET, 4'b1111, gbuff_B[i]);
-    end
-
-end endtask
-
-
-task read_golden; begin
-
-    nrow = (N_golden[1:0] !== 2'b00) ? M_golden * ((N_golden>>2) + 1) : M_golden * (N_golden>>2);
-
-    for(i=0;i<nrow;i=i+1) begin
-        temp = $fscanf(in_fd, "%h %h %h %h", goldenbuf[3], goldenbuf[2], goldenbuf[1], goldenbuf[0]);
-        GOLDEN[i] = {goldenbuf[3], goldenbuf[2], goldenbuf[1], goldenbuf[0]};
-        $display("GOLDEN[%d] = %h %h %h %h", i, GOLDEN[i][127:96],  GOLDEN[i][95:64],  GOLDEN[i][63:32],  GOLDEN[i][31:0]);
-    end
-
-end endtask
 
 
 task wait_finished; begin
