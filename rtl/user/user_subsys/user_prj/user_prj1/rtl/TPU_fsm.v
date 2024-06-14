@@ -17,7 +17,6 @@ module TPU_fsm
 	// Global Signals 
 	input   wire                     	clk,
 	input   wire                     	rst_n,
-	output  wire [3:0] 			 	    state_TPU_o,
     input            					in_valid,
 	input								done,
     input [7:0]      					K,
@@ -26,6 +25,8 @@ module TPU_fsm
 
 
     output     							busy,
+	output     							ap_done,
+	output     							ap_idle,
     output      						sa_rst_n,
 
 	output      						A_wr_en,
@@ -58,12 +59,14 @@ module TPU_fsm
 	reg [15:0]				 			i, j;
 	integer								t;
 	reg [3:0] 							state;
-	assign state_TPU_o = state;
+
 	
 	reg A_wr_en_temp;
 	reg B_wr_en_temp;
 	reg C_wr_en_temp;
 	reg busy_temp;
+	reg ap_done_temp;
+	reg ap_idle_temp;
 	reg sa_rst_n_temp;
 
 	reg [DATAC_BITS-1:0] result[3:0];
@@ -108,7 +111,9 @@ end
 	assign A_wr_en = A_wr_en_temp;
 	assign B_wr_en = B_wr_en_temp;
 	assign C_wr_en = C_wr_en_temp;
-	assign busy = busy_temp;	
+	assign busy = busy_temp;
+	assign ap_done = ap_done_temp;
+	assign ap_idle = ap_idle_temp;		
 	assign sa_rst_n = sa_rst_n_temp;
 
 
@@ -220,6 +225,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b0;
 				busy_temp <= 1'b0;
+				ap_done_temp <= 1'b1;
+				ap_idle_temp <= 1'b1;
 				sa_rst_n_temp <= 1'b0;
 				i=0;
 				j=0;
@@ -241,6 +248,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b0;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b0;
 
 				A_index_temp <= i + Koffset + Moffset;
@@ -251,6 +260,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b0;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b0;
 				if ( A_index_temp < K_reg * (Moffset_times+1)) begin
 					local_buffer_A[i] <= A_data_out;
@@ -267,6 +278,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b0;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b1;
 			end
 			S4: begin
@@ -274,6 +287,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b1;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b1;
 
 				C_index_temp = j + Moffset_index_o + Noffset_index_o;
@@ -283,6 +298,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b1;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b1;
 
 				C_data_in_temp <= result[j];
@@ -293,6 +310,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b0;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b0;
 
 				for (t = 0; t < 4; t = t + 1)
@@ -304,6 +323,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b0;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b0;
 
 				Koffset_times <= Koffset_times + 1;
@@ -315,6 +336,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b0;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b0;
 				i=0;
 				j=0;
@@ -332,6 +355,8 @@ end
 				B_wr_en_temp <= 1'b0;
 				C_wr_en_temp <= 1'b0;
 				busy_temp <= 1'b1;
+				ap_done_temp <= 1'b0;
+				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b0;
 				i=0;
 				j=0;

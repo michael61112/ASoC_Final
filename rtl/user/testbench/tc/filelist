@@ -21,5 +21,10 @@
 ../../user_subsys/user_prj/user_prj0/rtl/concat_EdgeDetect_Top_fsic.v
 ../../user_subsys/user_prj/user_prj0/rtl/spram.v
 ../../user_subsys/user_prj/user_prj1/rtl/user_prj1.v
+../../user_subsys/user_prj/user_prj1/rtl/global_buffer.v
+../../user_subsys/user_prj/user_prj1/rtl/systolic_array.v
+../../user_subsys/user_prj/user_prj1/rtl/TPU_fsm.v
+../../user_subsys/user_prj/user_prj1/rtl/block.v
+../../user_subsys/user_prj/user_prj1/rtl/TPU.v
 ../../user_subsys/user_prj/user_prj2/rtl/user_prj2.v
 ../../user_subsys/user_prj/user_prj3/rtl/user_prj3.v
