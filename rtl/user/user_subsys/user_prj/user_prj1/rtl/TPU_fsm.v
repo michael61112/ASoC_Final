@@ -30,15 +30,15 @@ module TPU_fsm
     output      						sa_rst_n,
 
 	output      						A_wr_en,
-	output [15:0]    					A_index,
+	output [(ADDR_BITS-1):0]    					A_index,
 	input  [31:0]    					A_data_out,
 	
 	output      						B_wr_en,
-	output [15:0]    					B_index,
+	output [(ADDR_BITS-1):0]    					B_index,
 	input  [31:0]    					B_data_out,
     
 	output      						C_wr_en,
-    output  [ADDR_BITS-1:0]    			C_index,
+    output  [(ADDR_BITS-1):0]    			C_index,
     output  [DATAC_BITS-1:0]    		C_data_in,
 
 	output [DATA_BITS-1:0] local_buffer_A0,
@@ -228,8 +228,8 @@ end
 				ap_done_temp <= 1'b1;
 				ap_idle_temp <= 1'b1;
 				sa_rst_n_temp <= 1'b0;
-				i=0;
-				j=0;
+				i<=0;
+				j<=0;
 				for (t = 0; t <4; t = t + 1)
 					result[t] <= 128'b0;
 				Koffset_times <= 0;
@@ -339,8 +339,8 @@ end
 				ap_done_temp <= 1'b0;
 				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b0;
-				i=0;
-				j=0;
+				i<=0;
+				j<=0;
 				for (t = 0; t <4; t = t + 1)
 					result[t] <= 128'b0;
 				Koffset_times <= 0;
@@ -358,8 +358,8 @@ end
 				ap_done_temp <= 1'b0;
 				ap_idle_temp <= 1'b0;
 				sa_rst_n_temp <= 1'b0;
-				i=0;
-				j=0;
+				i<=0;
+				j<=0;
 				for (t = 0; t <4; t = t + 1)
 					result[t] <= 128'b0;
 				Koffset_times <= 0;

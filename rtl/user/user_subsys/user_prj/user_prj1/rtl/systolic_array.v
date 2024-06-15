@@ -42,7 +42,6 @@ module systolic_array
 	input clk,
 	input sa_rst_n,
 	
-	output  wire [2:0] 			 	    state_SA_o,
 	input busy,
 	output done,
 
@@ -102,7 +101,6 @@ module systolic_array
 	assign inp_west8_o = inp_west8;
 	assign inp_west12_o = inp_west12;
 
-	assign state_SA_o = state;
 	assign result0_o = result7;
 	assign rst = ~sa_rst_n;
 	

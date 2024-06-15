@@ -72,6 +72,8 @@ reg [(pDATA_WIDTH*4-1) : 0] C_data_in, buf_C_dout, C_data_out;
 wire [(pADDR_WIDTH-1):0]  A_index, B_index, C_index;
 wire [(pADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
 
+wire busy;
+wire A_wr_en, B_wr_en, C_wr_en;
 //=====================================================================
 //   DATA PATH & CONTROL
 //=====================================================================
@@ -98,7 +100,7 @@ wire [(pADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
 // Read: read mmio / tap RAM
 // Address read channel
 assign arready = ~task_r;
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         addr_r <= 'd0;
     else begin
@@ -106,7 +108,7 @@ always @(posedge axis_clk or negedge axis_rst_n) begin
             addr_r <= araddr;
     end
 end
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         task_r <= 1'b0;
     else begin
@@ -195,7 +197,7 @@ end
 // Write: write configation to mmio / tap RAM
 // Address write channel
 assign awready = ~task_w;
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         addr_w <= 'd0;
     else begin
@@ -203,7 +205,7 @@ always @(posedge axis_clk or negedge axis_rst_n) begin
             addr_w <= awaddr;
     end
 end
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         task_w <= 1'b0;
     else begin
@@ -224,7 +226,7 @@ assign wready = task_w;
 
 //---------- Block level protocol ----------
 // ap_start: axilite slave write
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         ap_start <= 1'b0;
     else begin
@@ -240,7 +242,7 @@ end
 
 //---------- Port level protocol ----------
 // len: axilite slave write
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n) begin
         M <= 'd0;
         K <= 'd0;
@@ -314,7 +316,9 @@ assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
       .data_out(C_data_out)
   );
 
-  TPU My_TPU (
+  TPU #(
+    .ADDR_BITS(pADDR_WIDTH)
+  ) My_TPU (
       .clk        (axi_clk),
       .rst_n      (axi_reset_n),
       .in_valid   (ap_start),
