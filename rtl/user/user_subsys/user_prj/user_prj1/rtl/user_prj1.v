@@ -6,7 +6,8 @@
 
 module USER_PRJ1 #( parameter pUSER_PROJECT_SIDEBAND_WIDTH   = 5,
           parameter pADDR_WIDTH   = 12,
-                   parameter pDATA_WIDTH   = 32
+                   parameter pDATA_WIDTH   = 32,
+          parameter gfADDR_WIDTH = 6
                  )
 (
   output wire                        awready,
@@ -64,13 +65,13 @@ reg [15:0] buf_sizeA, buf_sizeB, buf_sizeC;
 // AXIlite
 reg [(pADDR_WIDTH-1):0] addr_r, addr_w;
 reg [(pDATA_WIDTH-1) : 0] rdata_r;
-reg [(pADDR_WIDTH-1):0]  buf_A_address, buf_B_address, buf_C_address;
+reg [(gfADDR_WIDTH-1):0]  buf_A_address, buf_B_address, buf_C_address;
 
 reg [(pDATA_WIDTH-1) : 0] A_data_in, B_data_in, A_data_out, B_data_out, buf_A_din, buf_B_din;
 reg [(pDATA_WIDTH*4-1) : 0] C_data_in, buf_C_dout, C_data_out;
 
-wire [(pADDR_WIDTH-1):0]  A_index, B_index, C_index;
-wire [(pADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
+wire [(gfADDR_WIDTH-1):0]  A_index, B_index, C_index;
+wire [(gfADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
 
 wire busy;
 wire A_wr_en, B_wr_en, C_wr_en;
@@ -281,7 +282,7 @@ assign B_wr_en_mux = (busy == 1'b1) ? B_wr_en : 1'b1;
 assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
 
   global_buffer #(
-      .ADDR_BITS(pADDR_WIDTH),
+      .ADDR_BITS(gfADDR_WIDTH),
       .DATA_BITS(pDATA_WIDTH)
   ) gbuff_A (
       .clk(axi_clk),
@@ -293,7 +294,7 @@ assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
   );
 
   global_buffer #(
-      .ADDR_BITS(pADDR_WIDTH),
+      .ADDR_BITS(gfADDR_WIDTH),
       .DATA_BITS(pDATA_WIDTH)
   ) gbuff_B (
       .clk(axi_clk),
@@ -305,7 +306,7 @@ assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
   );
 
   global_buffer #(
-      .ADDR_BITS(pADDR_WIDTH),
+      .ADDR_BITS(gfADDR_WIDTH),
       .DATA_BITS(pDATA_WIDTH << 2)
   ) gbuff_C (
       .clk(axi_clk),
@@ -317,7 +318,7 @@ assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
   );
 
   TPU #(
-    .ADDR_BITS(pADDR_WIDTH)
+    .ADDR_BITS(gfADDR_WIDTH)
   ) My_TPU (
       .clk        (axi_clk),
       .rst_n      (axi_reset_n),
