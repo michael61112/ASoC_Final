@@ -1,0 +1,10 @@
+
+rm -rf csrc
+rm -rf DVEfiles
+rm -rf ncverilog.key
+rm -rf ncverilog.log
+rm -rf opendatabase.log
+rm -rf simv
+rm -rf simv.daidir
+rm -rf ucli.key
+rm -rf bench.vcd
