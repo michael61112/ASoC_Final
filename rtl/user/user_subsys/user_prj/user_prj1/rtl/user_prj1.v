@@ -54,7 +54,8 @@ module USER_PRJ1 #( parameter pUSER_PROJECT_SIDEBAND_WIDTH   = 5,
 );
 
 reg rvalid_r;
-reg ap_start, ap_idle, ap_done;
+reg ap_start;
+wire ap_idle, ap_done;
 reg task_r, task_w;
 
 reg [7:0] M, K, N;
@@ -66,8 +67,10 @@ reg [(pADDR_WIDTH-1):0] addr_r, addr_w;
 reg [(pDATA_WIDTH-1) : 0] rdata_r;
 reg [(pADDR_WIDTH-1):0]  buf_A_address, buf_B_address, buf_C_address;
 
-reg [(pDATA_WIDTH-1) : 0] A_data_in, B_data_in, A_data_out, B_data_out, buf_A_din, buf_B_din;
-reg [(pDATA_WIDTH*4-1) : 0] C_data_in, buf_C_dout, C_data_out;
+wire [(pDATA_WIDTH-1) : 0] A_data_in, B_data_in, A_data_out, B_data_out;
+reg [(pDATA_WIDTH-1) : 0] buf_A_din, buf_B_din;
+reg [(pDATA_WIDTH*4-1) : 0] buf_C_dout;
+wire [(pDATA_WIDTH*4-1) : 0] C_data_in, C_data_out;
 
 wire [(pADDR_WIDTH-1):0]  A_index, B_index, C_index;
 wire [(pADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
