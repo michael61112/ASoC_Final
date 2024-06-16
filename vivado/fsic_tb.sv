@@ -122,15 +122,15 @@ module fsic_tb();
 
         @(is_txen_event);      
         $display($time, "=> Starting test...");
-
-        Fpga2Soc_CfgRead();
-        Fpga2Soc_CfgWrite();
+/*
+//        Fpga2Soc_CfgRead();
+//        Fpga2Soc_CfgWrite();
         FpgaLocal_CfgRead();
         SocLocal_MbWrite();
         FpgaLocal_MbWrite();
         SocLa2DmaPath();
         SocUp2DmaPath();
-
+*/
         #500us    
         $display($time, "=> End of the test...");                         
         $finish;

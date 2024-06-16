@@ -43,17 +43,17 @@ output           ap_done;
 output           ap_idle;
 
 output           A_wr_en;
-output [15:0]    A_index;
+output [(ADDR_BITS-1):0]    A_index;
 //output [31:0]    A_data_in;
 input  [31:0]    A_data_out;
 
 output           B_wr_en;
-output [15:0]    B_index;
+output [(ADDR_BITS-1):0]    B_index;
 //output [31:0]    B_data_in;
 input  [31:0]    B_data_out;
 
 output           C_wr_en;
-output [15:0]    C_index;
+output [(ADDR_BITS-1):0]    C_index;
 output [127:0]   C_data_in;
 //input  [127:0]   C_data_out;
 
@@ -87,7 +87,9 @@ wire [DATAC_BITS-1:0]	local_buffer_C1;
 wire [DATAC_BITS-1:0]	local_buffer_C2;
 wire [DATAC_BITS-1:0]	local_buffer_C3;
 
-TPU_fsm TPU_fsm1(
+TPU_fsm #(
+  .ADDR_BITS(ADDR_BITS)
+  ) TPU_fsm1(
     .clk(clk),
 	.rst_n(rst_n),
     .in_valid(in_valid),
@@ -133,7 +135,6 @@ systolic_array systolic_array1(
 	
 	.clk(clk),
 	.sa_rst_n(sa_rst_n),
-    .state_SA_o(state_SA_o),
     .busy(busy),
 	.done(done),
 
