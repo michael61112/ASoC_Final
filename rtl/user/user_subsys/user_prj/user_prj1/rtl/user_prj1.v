@@ -6,7 +6,8 @@
 
 module USER_PRJ1 #( parameter pUSER_PROJECT_SIDEBAND_WIDTH   = 5,
           parameter pADDR_WIDTH   = 12,
-                   parameter pDATA_WIDTH   = 32
+                   parameter pDATA_WIDTH   = 32,
+          parameter gfADDR_WIDTH = 6
                  )
 (
   output wire                        awready,
@@ -54,7 +55,8 @@ module USER_PRJ1 #( parameter pUSER_PROJECT_SIDEBAND_WIDTH   = 5,
 );
 
 reg rvalid_r;
-reg ap_start, ap_idle, ap_done;
+reg ap_start;
+wire ap_idle, ap_done;
 reg task_r, task_w;
 
 reg [7:0] M, K, N;
@@ -64,14 +66,18 @@ reg [15:0] buf_sizeA, buf_sizeB, buf_sizeC;
 // AXIlite
 reg [(pADDR_WIDTH-1):0] addr_r, addr_w;
 reg [(pDATA_WIDTH-1) : 0] rdata_r;
-reg [(pADDR_WIDTH-1):0]  buf_A_address, buf_B_address, buf_C_address;
+reg [(gfADDR_WIDTH-1):0]  buf_A_address, buf_B_address, buf_C_address;
 
-reg [(pDATA_WIDTH-1) : 0] A_data_in, B_data_in, A_data_out, B_data_out, buf_A_din, buf_B_din;
-reg [(pDATA_WIDTH*4-1) : 0] C_data_in, buf_C_dout, C_data_out;
+wire [(pDATA_WIDTH-1) : 0] A_data_in, B_data_in, A_data_out, B_data_out;
+reg [(pDATA_WIDTH-1) : 0] buf_A_din, buf_B_din;
+reg [(pDATA_WIDTH*4-1) : 0] buf_C_dout;
+wire [(pDATA_WIDTH*4-1) : 0] C_data_in, C_data_out;
 
-wire [(pADDR_WIDTH-1):0]  A_index, B_index, C_index;
-wire [(pADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
+wire [(gfADDR_WIDTH-1):0]  A_index, B_index, C_index;
+wire [(gfADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
 
+wire busy;
+wire A_wr_en, B_wr_en, C_wr_en;
 //=====================================================================
 //   DATA PATH & CONTROL
 //=====================================================================
@@ -98,7 +104,7 @@ wire [(pADDR_WIDTH-1):0]  A_index_mux, B_index_mux, C_index_mux;
 // Read: read mmio / tap RAM
 // Address read channel
 assign arready = ~task_r;
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         addr_r <= 'd0;
     else begin
@@ -106,7 +112,7 @@ always @(posedge axis_clk or negedge axis_rst_n) begin
             addr_r <= araddr;
     end
 end
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         task_r <= 1'b0;
     else begin
@@ -195,7 +201,7 @@ end
 // Write: write configation to mmio / tap RAM
 // Address write channel
 assign awready = ~task_w;
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         addr_w <= 'd0;
     else begin
@@ -203,7 +209,7 @@ always @(posedge axis_clk or negedge axis_rst_n) begin
             addr_w <= awaddr;
     end
 end
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         task_w <= 1'b0;
     else begin
@@ -224,7 +230,7 @@ assign wready = task_w;
 
 //---------- Block level protocol ----------
 // ap_start: axilite slave write
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n)
         ap_start <= 1'b0;
     else begin
@@ -240,7 +246,7 @@ end
 
 //---------- Port level protocol ----------
 // len: axilite slave write
-always @(posedge axis_clk or negedge axis_rst_n) begin
+always @(posedge axi_clk or negedge axis_rst_n) begin
     if (~axis_rst_n) begin
         M <= 'd0;
         K <= 'd0;
@@ -279,7 +285,7 @@ assign B_wr_en_mux = (busy == 1'b1) ? B_wr_en : 1'b1;
 assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
 
   global_buffer #(
-      .ADDR_BITS(pADDR_WIDTH),
+      .ADDR_BITS(gfADDR_WIDTH),
       .DATA_BITS(pDATA_WIDTH)
   ) gbuff_A (
       .clk(axi_clk),
@@ -291,7 +297,7 @@ assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
   );
 
   global_buffer #(
-      .ADDR_BITS(pADDR_WIDTH),
+      .ADDR_BITS(gfADDR_WIDTH),
       .DATA_BITS(pDATA_WIDTH)
   ) gbuff_B (
       .clk(axi_clk),
@@ -303,7 +309,7 @@ assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
   );
 
   global_buffer #(
-      .ADDR_BITS(pADDR_WIDTH),
+      .ADDR_BITS(gfADDR_WIDTH),
       .DATA_BITS(pDATA_WIDTH << 2)
   ) gbuff_C (
       .clk(axi_clk),
@@ -314,7 +320,9 @@ assign C_wr_en_mux = (busy == 1'b1) ? C_wr_en : 1'b0;
       .data_out(C_data_out)
   );
 
-  TPU My_TPU (
+  TPU #(
+    .ADDR_BITS(gfADDR_WIDTH)
+  ) My_TPU (
       .clk        (axi_clk),
       .rst_n      (axi_reset_n),
       .in_valid   (ap_start),

@@ -1,0 +1,35 @@
+
+## TOP DOMAIN
+create_power_domain TOP
+
+create_supply_port VDD 
+create_supply_port VSS 
+create_supply_port VDDL 
+
+create_supply_net  VDD   
+create_supply_net  VSS   
+create_supply_net  VDDL   
+
+connect_supply_net VDD   -ports VDD
+connect_supply_net VSS   -ports VSS
+connect_supply_net VDDL  -ports VDDL
+
+
+set_domain_supply_net TOP   -primary_power_net VDD   -primary_ground_net VSS
+
+
+## GPRS
+create_power_domain GPRS  -elements GPRs
+create_supply_net  VSS   -domain GPRS -reuse
+create_supply_net  VDD   -domain GPRS -reuse
+create_supply_net  VDDL   -domain GPRS -reuse
+
+set_domain_supply_net GPRS  -primary_power_net VDDL -primary_ground_net VSS
+
+
+# PORT STATES 
+
+add_port_state VDD   -state {HV  0.72}
+add_port_state VDDL  -state {LV  0.72}
+add_port_state VSS  -state {GND  0}             
+
