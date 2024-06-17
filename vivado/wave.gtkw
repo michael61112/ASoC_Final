@@ -1,0 +1,57 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sun Jun 16 16:15:46 2024
+[*]
+[dumpfile] "/home/ubuntu/Desktop/ASoC_Final/vivado/vvd_caravel_fpga_sim/vvd_caravel_fpga_sim.sim/sim_1/behav/xsim/log.vcd"
+[dumpfile_mtime] "Sun Jun 16 16:13:51 2024"
+[dumpfile_size] 1169633668
+[savefile] "/home/ubuntu/Desktop/ASoC_Final/vivado/wave.gtkw"
+[timestart] 8247200000
+[size] 1848 838
+[pos] -51 -51
+*-24.462271 8354858000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fsic_tb.
+[treeopen] fsic_tb.DUT.
+[treeopen] fsic_tb.DUT.design_1_i.
+[treeopen] fsic_tb.DUT.design_1_i.caravel_0.
+[treeopen] fsic_tb.DUT.design_1_i.caravel_0.inst.
+[treeopen] fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.
+[treeopen] fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.
+[treeopen] fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.
+[treeopen] fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.
+[treeopen] fsic_tb.DUT.design_1_i.caravel_0.inst.soc.
+[sst_width] 573
+[signals_width] 206
+[sst_expanded] 1
+[sst_vpaned_height] 434
+@200
+-UP1
+@28
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.axi_clk
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.axis_clk
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.ap_start
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.ap_done
+@22
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.buf_A_din[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.buf_B_din[31:0]
+@200
+-TPU
+@22
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_A0[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_A1[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_A2[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_A3[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_B0[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_B1[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_B2[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_B3[31:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_C0[127:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_C1[127:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_C2[127:0]
+fsic_tb.DUT.design_1_i.caravel_0.inst.mprj.u_fsic.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.local_buffer_C3[127:0]
+@200
+-TB
+@23
+fsic_tb.read_data[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
