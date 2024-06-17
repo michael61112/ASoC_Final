@@ -17,6 +17,8 @@ rm -f timing_report.log
 rm -f vivado*.jou
 rm -f vivado*.log
 
+# ----- Prepare user project ---------#
+cp ../rtl/user/user_subsys/user_prj/user_prj1/rtl/* ./vvd_srcs/caravel_soc/rtl/user/user_subsys/user_prj/user_prj1/rtl/
 
 # ----- Re-build vivado project -----#
 
