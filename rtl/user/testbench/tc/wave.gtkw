@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Jun 18 03:02:23 2024
+[*] Tue Jun 18 08:43:14 2024
 [*]
 [dumpfile] "/home/ubuntu/Desktop/ASoC_Final/rtl/user/testbench/tc/log.vcd"
 [dumpfile_mtime] "Tue Jun 18 02:21:56 2024"
 [dumpfile_size] 36040567
 [savefile] "/home/ubuntu/Desktop/ASoC_Final/rtl/user/testbench/tc/wave.gtkw"
-[timestart] 142685000
+[timestart] 242225000
 [size] 1848 838
 [pos] -1 -1
-*-18.344160 143805000 18000 16000 129000000 129031300 142945000 144265000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-20.907871 242265000 18000 16000 129000000 129031300 142945000 144265000 181345000 185545000 242265000 254865000 125265000 126585000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [markername] AHI
 [markername] BGO
 [markername] DHHHH
@@ -21,9 +21,9 @@
 [treeopen] tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.
 [treeopen] tb_fsic.fpga_fsic.
 [sst_width] 233
-[signals_width] 288
+[signals_width] 276
 [sst_expanded] 1
-[sst_vpaned_height] 512
+[sst_vpaned_height] 262
 @200
 -GB_A
 @28
@@ -52,8 +52,55 @@ tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.gbuff_C.data_out[127:0]
 tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.axi_clk
 tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.ap_start
 tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.ap_done
+@24
++{tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.M[7:0]} tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.M[7:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.K[7:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.N[7:0]
 @200
--TPU_fsm
+-Systolic Array
+@24
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.state[2:0]
+@800200
+>2000
+-input data
+@420
+>0
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_north0[7:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_north1[7:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_north2[7:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_north3[7:0]
+@200
+-
+@420
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_west0[7:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_west4[7:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_west8[7:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_west12[7:0]
+@1000200
+>2000
+-input data
+@800200
+>0
+-result
+@420
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result0[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result1[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result2[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result3[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result4[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result5[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result6[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result7[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result8[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result9[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result10[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result11[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result12[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result13[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result14[31:0]
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result15[31:0]
+@1000200
+-result
 @c00200
 -TPU_fsm
 @24
@@ -76,59 +123,6 @@ tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.wvalid
 tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.wdata[31:0]
 @1401200
 -TPU_fsm
-@200
--Systolic Array
-@24
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.state[2:0]
-@800200
->2000
--input data
-@22
->2000
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_north0[7:0]
->2000
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_north1[7:0]
->2000
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_north2[7:0]
->2000
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_north3[7:0]
-@200
->2000
--
-@22
->2000
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_west0[7:0]
->2000
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_west4[7:0]
->2000
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_west8[7:0]
->2000
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.inp_west12[7:0]
-@1000200
->2000
--input data
-@800200
->0
--result
-@22
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result0[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result1[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result2[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result3[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result4[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result5[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result6[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result7[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result8[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result9[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result10[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result11[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result12[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result13[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result14[31:0]
-tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.result15[31:0]
-@1000200
--result
 @200
 -TPU
 @28
