@@ -1,10 +1,10 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Jun 18 08:43:14 2024
+[*] Tue Jun 18 15:38:09 2024
 [*]
 [dumpfile] "/home/ubuntu/Desktop/ASoC_Final/rtl/user/testbench/tc/log.vcd"
-[dumpfile_mtime] "Tue Jun 18 02:21:56 2024"
-[dumpfile_size] 36040567
+[dumpfile_mtime] "Tue Jun 18 15:37:19 2024"
+[dumpfile_size] 36016399
 [savefile] "/home/ubuntu/Desktop/ASoC_Final/rtl/user/testbench/tc/wave.gtkw"
 [timestart] 242225000
 [size] 1848 838
@@ -60,6 +60,8 @@ tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.N[7:0]
 -Systolic Array
 @24
 tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.state[2:0]
+@29
+tb_fsic.dut.U_USER_SUBSYS0.U_USRPRJ1.My_TPU.systolic_array1.sa_rst_n
 @800200
 >2000
 -input data

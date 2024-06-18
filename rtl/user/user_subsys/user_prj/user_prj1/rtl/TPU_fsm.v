@@ -289,7 +289,7 @@ end
 				busy_temp <= 1'b1;
 				ap_done_temp <= 1'b0;
 				ap_idle_temp <= 1'b0;
-				sa_rst_n_temp <= 1'b1;
+				sa_rst_n_temp <= 1'b0;
 
 				C_index_temp = j + Moffset_index_o + Noffset_index_o;
 			end
