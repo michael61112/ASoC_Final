@@ -13,14 +13,14 @@ In this project, we will demonstrate how using hardware acceleration can make ou
 
 ## Architecture
 ### System Architecture
-![image](https://hackmd.io/_uploads/BJi3yfsBC.png)
+![image](https://github.com/michael61112/ASoC_Final/blob/main/doc/picture/System_Architecture.png)
 
 ### UserProject IP Architecture
-![image](https://hackmd.io/_uploads/HyBq0T0S0.png)
+![image](https://github.com/michael61112/ASoC_Final/blob/main/doc/picture/UserProject_IP_Architecture.png)
 
 
 ### Testbench Code Block Diagram
-![image](https://hackmd.io/_uploads/B1GlgMsHA.png)
+![image](https://github.com/michael61112/ASoC_Final/blob/main/doc/picture/Testbench_Code_Block_Diagram.png)
 
 
 # Folder Structure
