@@ -1,13 +1,14 @@
+[ToC]
 # ASoC Final Project
 ## Introdcution
 
-For this final project, I'm working on improving the speed of a classic Convolutional Neural Network (CNN) model used for image recognition. The main challenge with neural networks is that they can be slow, especially when it comes to the convolution operations that process images.
+For this final project, I'm working on improving the speed of a classic neural network model called LeNet-5, which is used for recognizing handwritten digits. The main challenge with neural networks is that they can be slow, especially when it comes to the convolution operations that process images.
 
-To make our CNN run faster, we utilize specialized hardware called TPUs (Tensor Processing Units). The TPU is implemented using a systolic array and three global buffers. It is a data flow calculation architecture that can handle calculations much faster.
+To make LeNet-5 run faster, we use a algorithm called im2col. This method transforms the convolution process into a simpler matrix multiplication problem. Matrix multiplication is something that specialized hardware, we call it TPU. The TPU is implement by systolic array and three golbal buffers. It is data flow calculation which can handle the calculation faster.
 
-By leveraging these hardware accelerators, we can speed up the inference process of our CNN model. This means the model can recognize images much quicker without losing accuracy.
+By converting convolutions into matrix multiplications with im2col, we can take advantage of these hardware accelerators to speed up the inference process. This means the model can recognize digits much quicker without losing accuracy.
 
-In this project, we will demonstrate how using hardware acceleration can make our CNN more efficient. This approach shows how the CNN runs on the Jupyter notebook, and the convolution layers utilize the matrix multiplication IP in user project1. The data is passed to the accelerator through FSIC in the FPGA PL side to FSIC in the Caravel SoC. The TPU is part of the user project1 in the FSIC within the Caravel SoC. This model inference with powerful hardware can significantly improve the performance of neural networks.
+In this project, we will show how using im2col and hardware acceleration can make LeNet-5 more efficient when recognizing digits from the MNIST dataset. This approach demonstrates how LeNet-5 run on the jupyter notebook and covolution layer call the matrix multiplication IP in the user project1. It will pass the data in the accelarater through FSIC in FPGA PL side to FSIC in the caravel SoC. The TPU is in the user project1 of FSIC in the caravel SoC. This model inference with powerful hardware can significantly improve the performance of neural networks.
 
 
 
@@ -16,10 +17,7 @@ In this project, we will demonstrate how using hardware acceleration can make ou
 ![image](https://hackmd.io/_uploads/BJi3yfsBC.png)
 
 ### UserProject IP Architecture
-![image](https://hackmd.io/_uploads/HyBq0T0S0.png)
 
-
-### Testbench Code Block Diagram
 ![image](https://hackmd.io/_uploads/B1GlgMsHA.png)
 
 
@@ -30,14 +28,10 @@ In this project, we will demonstrate how using hardware acceleration can make ou
 | rtl  | Include all the functon implement in rtl and simulation by testbench |
 | dc  | Include the script of synthesis flow  |
 | vivado | Include the system simulation and validation with vivado flow |
-| doc | Include the simulation、validation report and the ppt of final report |
-| pattern | Inculde pattern generating code and test pattern|
 * **User Project Design Folder**
     * rtl/user/user_subsys/user_prj/user_prj1/rtl/
 * **JupyterNotebook  Code Folder**
     * vivado/jupyter_notebook
-* **Unit Test Code Folder**
-    * vivado/jupyter_notebook/Unit_Test
 
 # Build Setup
 Ubuntu 20.04 with Vivado 2022.1
@@ -63,45 +57,31 @@ cd final_project/rtl/user/testbench/tc/
 ### System Level simulation
 Integrate AP into Caravel-FSIC FPGA. The simulation
 
-* **Run simulation**
-    ``` shell
-    cd vivado
-    ./run_vivado_fsic_sim
-    ```
+* Run simulation
+``` shell
+cd vivado
+./run_vivado_fsic_sim
+```
 
-* **Waveform review**
-    ``` shell
-    ./open_wave
-    ```
+* Waveform review
+``` shell
+./open_wave
+```
 
-* **Open built Vivado Project by Vivado GUI**
+* Open built Vivado Project by Vivado GUI
     * File->Open->Project
     * Target Project file:
         * fsic_fpga/vivado/vvd_caravel_fpga_sim/vvd_caravel_fpga_sim.xpr
 
 ## Validation
 
-* Build Bitstream
-    ``` shell
-    cd vivado
-    ./run_vivado_fsic
-    ```
+``` shell
+cd vivado
+./run_vivado_fsic
+```
 * **Bitfile**:
     * vivado/jupyter_notebook/caravel_fpga.bit
 
 * **Hwh**:
     * vivado/jupyter_notebook/caravel_fpga.hwh
 
-## Synthesis
-
-* **Run Synthesis**
-    ``` shell
-    cd dc/lab_synthesis/work
-    make clean
-    make all
-    ```
-
-* **dc script**:
-    * dc/lab_synthesis/scripts/compile_for_timing.tcl
-* **sdc file**:
-    * dc/common/USER_PRJ1.sdc
