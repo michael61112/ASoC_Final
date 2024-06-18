@@ -1,0 +1,165 @@
+Loading db file '/RAID2/COURSE/asoc/asoc020/lab-snps-flow/SAED14_EDK_LAB/lib/stdcell_rvt/db_nldm/saed14rvt_tt0p8v25c.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : USER_PRJ1
+Version: T-2022.03
+Date   : Mon Jun 17 00:23:51 2024
+****************************************
+
+
+Library(s) Used:
+
+    saed14rvt_tt0p8v25c (File: /RAID2/COURSE/asoc/asoc020/lab-snps-flow/SAED14_EDK_LAB/lib/stdcell_rvt/db_nldm/saed14rvt_tt0p8v25c.db)
+
+
+Operating Conditions: tt0p8v25c   Library: saed14rvt_tt0p8v25c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+USER_PRJ1              35000             saed14rvt_tt0p8v25c
+
+
+Global Operating Voltage = 0.8  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+USER_PRJ1                              1.92e+05      N/A 2.25e+07 1.90e+05 100.0
+  My_TPU (TPU_ADDR_BITS6)                 0.238  496.785 4.42e+06  501.444   0.3
+    systolic_array1 (systolic_array)   8.56e-02  335.597 2.85e+06  338.531   0.2
+      add_208 (systolic_array_DW01_inc_7_DW01_inc_8)
+                                       1.35e-05 2.21e-05 1.07e+04 1.07e-02   0.0
+      add_209 (systolic_array_DW01_inc_6_DW01_inc_7)
+                                       6.30e-04 8.04e-04 1.47e+04 1.61e-02   0.0
+      add_210 (systolic_array_DW01_inc_5_DW01_inc_6)
+                                       9.26e-04 1.75e-03 1.44e+04 1.71e-02   0.0
+      add_211 (systolic_array_DW01_inc_4_DW01_inc_5)
+                                       2.87e-04 5.59e-04 1.43e+04 1.51e-02   0.0
+      add_213 (systolic_array_DW01_inc_3_DW01_inc_4)
+                                       1.35e-05 2.21e-05 1.07e+04 1.07e-02   0.0
+      add_214 (systolic_array_DW01_inc_2_DW01_inc_3)
+                                       6.30e-04 8.04e-04 1.47e+04 1.61e-02   0.0
+      add_215 (systolic_array_DW01_inc_1_DW01_inc_2)
+                                       9.26e-04 1.75e-03 1.44e+04 1.71e-02   0.0
+      add_216 (systolic_array_DW01_inc_0_DW01_inc_1)
+                                       2.87e-04 5.59e-04 1.43e+04 1.51e-02   0.0
+      P15 (block_1)                    4.86e-05    9.595 9.07e+04    9.685   0.0
+        add_40 (block_1_DW01_add_0_DW01_add_16)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_1_DW02_mult_0_DW02_mult_1)
+                                          0.000    0.000 5.15e+04 5.15e-02   0.0
+      P14 (block_2)                    4.86e-05    9.595 9.24e+04    9.687   0.0
+        add_40 (block_2_DW01_add_0_DW01_add_18)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_2_DW02_mult_0_DW02_mult_2)
+                                          0.000    0.000 5.33e+04 5.33e-02   0.0
+      P13 (block_3)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_3_DW01_add_0_DW01_add_20)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_3_DW02_mult_0_DW02_mult_3)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P12 (block_4)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_4_DW01_add_0_DW01_add_22)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_4_DW02_mult_0_DW02_mult_4)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P11 (block_5)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_5_DW01_add_0_DW01_add_24)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_5_DW02_mult_0_DW02_mult_5)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P10 (block_6)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_6_DW01_add_0_DW01_add_26)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_6_DW02_mult_0_DW02_mult_6)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P9 (block_7)                     4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_7_DW01_add_0_DW01_add_28)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_7_DW02_mult_0_DW02_mult_7)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P8 (block_8)                     4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_8_DW01_add_0_DW01_add_30)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_8_DW02_mult_0_DW02_mult_8)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P7 (block_9)                     4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_9_DW01_add_0_DW01_add_32)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_9_DW02_mult_0_DW02_mult_9)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P6 (block_10)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_10_DW01_add_0_DW01_add_36)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_10_DW02_mult_0_DW02_mult_11)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P5 (block_11)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_11_DW01_add_0_DW01_add_40)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_11_DW02_mult_0_DW02_mult_13)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P4 (block_12)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_12_DW01_add_0_DW01_add_44)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_12_DW02_mult_0_DW02_mult_15)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P3 (block_13)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_13_DW01_add_0_DW01_add_34)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_13_DW02_mult_0_DW02_mult_10)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P2 (block_14)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_14_DW01_add_0_DW01_add_38)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_14_DW02_mult_0_DW02_mult_12)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P1 (block_15)                    4.86e-05    9.595 1.01e+05    9.696   0.0
+        add_40 (block_15_DW01_add_0_DW01_add_42)
+                                          0.000    0.000 2.32e+04 2.32e-02   0.0
+        mult_45 (block_15_DW02_mult_0_DW02_mult_14)
+                                          0.000    0.000 6.23e+04 6.23e-02   0.0
+      P0 (block_0)                     5.84e-03   11.893 9.43e+04   11.993   0.0
+        add_40 (block_0_DW01_add_0_DW01_add_14)
+                                       8.87e-05 8.60e-04 2.38e+04 2.48e-02   0.0
+        mult_45 (block_0_DW02_mult_0)  5.70e-03 3.99e-03 5.32e+04 6.29e-02   0.0
+    TPU_fsm1 (TPU_fsm_ADDR_BITS6)         0.122  161.184 1.57e+06  162.876   0.1
+      mult_266 (TPU_fsm_ADDR_BITS6_DW02_mult_0_DW02_mult_16)
+                                       5.57e-04 3.62e-05 4.43e+04 4.49e-02   0.0
+      add_274 (TPU_fsm_ADDR_BITS6_DW01_inc_3_DW01_inc_12)
+                                       1.30e-05      N/A 5.11e+03 5.12e-03   0.0
+      add_306 (TPU_fsm_ADDR_BITS6_DW01_inc_2_DW01_inc_11)
+                                       1.30e-05      N/A 5.11e+03 5.12e-03   0.0
+      add_318 (TPU_fsm_ADDR_BITS6_DW01_add_8)
+                                       4.34e-05      N/A 1.07e+05    0.107   0.0
+      add_318_I2 (TPU_fsm_ADDR_BITS6_DW01_add_7)
+                                       4.34e-05      N/A 1.07e+05    0.107   0.0
+      add_318_I3 (TPU_fsm_ADDR_BITS6_DW01_add_6)
+                                       4.34e-05      N/A 1.07e+05    0.107   0.0
+      add_318_I4 (TPU_fsm_ADDR_BITS6_DW01_add_5)
+                                       4.34e-05      N/A 1.07e+05    0.107   0.0
+      add_350 (TPU_fsm_ADDR_BITS6_DW01_add_3)
+                                       4.34e-05      N/A 6.51e+03 6.55e-03   0.0
+      add_373 (TPU_fsm_ADDR_BITS6_DW01_add_1)
+                                       4.34e-05      N/A 6.51e+03 6.55e-03   0.0
+  gbuff_C (global_buffer_ADDR_BITS6_DATA_BITS128)
+                                       6.40e+04      N/A 1.32e+07 6.39e+04  33.7
+  gbuff_B (global_buffer_ADDR_BITS6_DATA_BITS32_1)
+                                       6.40e+04      N/A 2.37e+06 6.26e+04  33.0
+  gbuff_A (global_buffer_ADDR_BITS6_DATA_BITS32_0)
+                                       6.40e+04      N/A 2.38e+06 6.26e+04  33.0
+1
