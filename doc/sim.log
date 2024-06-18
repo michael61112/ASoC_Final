@@ -1,0 +1,1328 @@
+
+****** xsim v2022.1 (64-bit)
+  **** SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/tb_fsic_xelab/xsim_script.tcl
+# xsim {tb_fsic_xelab} -autoloadwcfg -tclbatch {log_wave.tcl}
+Time resolution is 1 ps
+open_wave_config /home/ubuntu/Desktop/ASoC_Final/rtl/user/testbench/tc/tb_fsic_xelab.wcfg
+WARNING: Simulation object /tb_fsic/dut/U_MPRJ_IO0/vccd1 was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_MPRJ_IO0/vccd2 was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_MPRJ_IO0/vssd1 was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_MPRJ_IO0/vssd2 was not found in the design.
+WARNING: Simulation object /tb_fsic/vccd1 was not found in the design.
+WARNING: Simulation object /tb_fsic/vccd2 was not found in the design.
+WARNING: Simulation object /tb_fsic/vssd1 was not found in the design.
+WARNING: Simulation object /tb_fsic/vssd2 was not found in the design.
+WARNING: Simulation object /tb_fsic/idx2 was not found in the design.
+WARNING: Simulation object /tb_fsic/idx3 was not found in the design.
+WARNING: Simulation object /tb_fsic/idx6 was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/pre_rd_ptr_reg was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_up_tvalid_reg was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_aa_tvalid_reg was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/delaynext was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/pre_m_axis was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/reg_edgedetect_done was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/edgedetect_done was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/rd_state was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/rd_next_state was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/reg_widthIn was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/reg_heightIn was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/reg_sw_in was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/reg_rst was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/crc32_stream_in was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/crc32_stream_out was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/reg_crc32_stream_in was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/reg_crc32_stream_out was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/ss_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/sm_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/fpga_fsic/U_IO_SERDES0/as_is_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/fpga_fsic/U_IO_SERDES0/pre_as_is_tupsb_4_1_buf was not found in the design.
+WARNING: Simulation object /tb_fsic/fpga_fsic/U_IO_SERDES0/as_is_tupsb_4_1_buf was not found in the design.
+WARNING: Simulation object /tb_fsic/fpga_fsic/U_IO_SERDES0/Serial_Data_Out_tupsb_4_1 was not found in the design.
+WARNING: Simulation object /tb_fsic/fpga_fsic/U_IO_SERDES0/pre_as_is_tupsb_tlast_tvalid_tready_buf was not found in the design.
+WARNING: Simulation object /tb_fsic/fpga_fsic/U_IO_SERDES0/as_is_tupsb_tlast_tvalid_tready_buf was not found in the design.
+WARNING: Simulation object /tb_fsic/fpga_fsic/U_IO_SERDES0/Serial_Data_Out_tupsb_tlast_tvalid_tready was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_IO_SERDES0/is_as_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/is_as_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_up_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/UPSB_OFFSET was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/s_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_AXIS_SLAV0/s_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_AXIS_SLAV0/ss_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/ss_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_USER_SUBSYS0/U_USRPRJ0/sm_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/up_as_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/U_IO_SERDES0/as_is_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/fpga_fsic/U_IO_SERDES0/is_as_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/up_as_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_is_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/is_as_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_up_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/m_axis_tupsb_reg was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_up_tvalid_reg was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_up_tupsb was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/pre_rd_ptr_reg was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_up_tvalid_reg was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/as_aa_tvalid_reg was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/delaynext was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/pre_m_axis was not found in the design.
+WARNING: Simulation object /tb_fsic/dut/AXIS_SW0/UPSB_OFFSET was not found in the design.
+source log_wave.tcl
+## log_wave -quiet -verbose -recursive *
+## run all
+TPU test from SoC side
+fsic_system_initial
+                  40=> soc POR Assert
+                  40=> fpga POR Assert
+                  40=> fpga reset Assert
+                  80=> soc POR De-Assert
+                  80=> fpga POR De-Assert
+                 120=> fpga reset De-Assert
+                 185=> fpga_as_to_is_init done
+                 225=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000001, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+                 425=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000001
+                 865=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000003, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+                1025=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000003
+Enable TPU IP
+Program ap_start=0
+Wait TPU is idle
+M:   2, K:   2 N:   2
+A[          0] = c4b10000
+A[          1] = 96d00000
+B[          0] = 174d0000
+B[          1] = 28490000
+GOLDEN[          0] = 0000290c 000065ba 00000000 00000000
+GOLDEN[          1] = 00003067 0000708d 00000000 00000000
+patcount[          0] ap_start = 1
+patcount[          0] ap_start = 0
+C[          0] = 0000290c000065ba0000000000000000
+C[          1] = 000030670000708d0000000000000000
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Yes, you pass answoer   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+fsic_system_initial
+                9805=> soc POR Assert
+                9805=> fpga POR Assert
+                9805=> fpga reset Assert
+                9845=> soc POR De-Assert
+                9845=> fpga POR De-Assert
+                9885=> fpga reset De-Assert
+                9945=> fpga_as_to_is_init done
+                9985=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000001, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+               10185=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000001
+               10625=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000003, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+               10785=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000003
+Enable TPU IP
+Program ap_start=0
+Wait TPU is idle
+M:   4, K:   4 N:   4
+A[          0] = 22cedb9b
+A[          1] = 3c5f4add
+A[          2] = acbf26c9
+A[          3] = 69779d06
+B[          0] = 6a945100
+B[          1] = f5137624
+B[          2] = 6c8788b2
+B[          3] = 37a2bc93
+GOLDEN[          0] = 0000a69f 0000b542 0000cee6 0000bc53
+GOLDEN[          1] = 00011a5c 00012e2c 000129d4 0000d67f
+GOLDEN[          2] = 0000d343 0000fb7e 0000eee3 00007efb
+GOLDEN[          3] = 000169c5 0000d7ce 00010619 0000ae48
+patcount[          0] ap_start = 1
+patcount[          0] ap_start = 0
+C[          0] = 0000a69f0000b5420000cee60000bc53
+C[          1] = 00011a5c00012e2c000129d40000d67f
+C[          2] = 0000d3430000fb7e0000eee300007efb
+C[          3] = 000169c50000d7ce000106190000ae48
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Yes, you pass answoer   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+fsic_system_initial
+               24605=> soc POR Assert
+               24605=> fpga POR Assert
+               24605=> fpga reset Assert
+               24645=> soc POR De-Assert
+               24645=> fpga POR De-Assert
+               24685=> fpga reset De-Assert
+               24745=> fpga_as_to_is_init done
+               24785=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000001, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+               24985=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000001
+               25425=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000003, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+               25585=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000003
+Enable TPU IP
+Program ap_start=0
+Wait TPU is idle
+M:   4, K:  15 N:   4
+A[          0] = b6f8f4b1
+A[          1] = 8de86439
+A[          2] = f0f6093b
+A[          3] = a9ee9e38
+A[          4] = 94089578
+A[          5] = 7e81ae09
+A[          6] = 82921064
+A[          7] = 4351f518
+A[          8] = 9bc356a6
+A[          9] = 7cc0e4aa
+A[         10] = 29bb6b86
+A[         11] = 05145773
+A[         12] = f945b260
+A[         13] = 20c8ef9c
+A[         14] = a4377b06
+B[          0] = a0511bac
+B[          1] = 3097fef4
+B[          2] = e04690e8
+B[          3] = 2b0de617
+B[          4] = f14e6f04
+B[          5] = bceb8eb2
+B[          6] = 7abf0f79
+B[          7] = 31631ed6
+B[          8] = 40fc95b1
+B[          9] = 0b292103
+B[         10] = 31fbdc55
+B[         11] = 6e50f79f
+B[         12] = a7d64aaa
+B[         13] = 23edd198
+B[         14] = 9cecc55f
+GOLDEN[          0] = 0003ee08 00044dc8 0003c606 00042b48
+GOLDEN[          1] = 00035055 0004ed9d 0004dd6a 0004e72d
+GOLDEN[          2] = 00034924 0004ab33 0004234e 000432bb
+GOLDEN[          3] = 000235a6 00033979 0002d8ca 0002ba7f
+patcount[          0] ap_start = 1
+patcount[          0] ap_start = 0
+C[          0] = 0003ee0800044dc80003c60600042b48
+C[          1] = 000350550004ed9d0004dd6a0004e72d
+C[          2] = 000349240004ab330004234e000432bb
+C[          3] = 000235a6000339790002d8ca0002ba7f
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Yes, you pass answoer   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+fsic_system_initial
+               54525=> soc POR Assert
+               54525=> fpga POR Assert
+               54525=> fpga reset Assert
+               54565=> soc POR De-Assert
+               54565=> fpga POR De-Assert
+               54605=> fpga reset De-Assert
+               54665=> fpga_as_to_is_init done
+               54705=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000001, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+               54905=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000001
+               55345=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000003, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+               55505=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000003
+Enable TPU IP
+Program ap_start=0
+Wait TPU is idle
+M:   4, K:  13 N:   9
+A[          0] = 28966bef
+A[          1] = 9fa38522
+A[          2] = 09f6e93e
+A[          3] = 6fc96821
+A[          4] = de7f68c1
+A[          5] = 81759a31
+A[          6] = 1edde54a
+A[          7] = 7d3c2f4d
+A[          8] = 6e70fdbc
+A[          9] = 11592dc9
+A[         10] = 472dd44a
+A[         11] = 8c448a94
+A[         12] = 0658c5d0
+B[          0] = b75c834f
+B[          1] = 5868fe2b
+B[          2] = f1aa831a
+B[          3] = d13b6b04
+B[          4] = ee68e0ea
+B[          5] = bba2ba21
+B[          6] = db64d4a6
+B[          7] = aec85273
+B[          8] = 4dfe8526
+B[          9] = cd3f4359
+B[         10] = 1703cdf6
+B[         11] = b68702f0
+B[         12] = 601fa10e
+B[         13] = 7bac4ede
+B[         14] = 006d232f
+B[         15] = 67b8578f
+B[         16] = ce9ae8db
+B[         17] = 34f0fd45
+B[         18] = 27ea473c
+B[         19] = e2711b64
+B[         20] = 8cc54938
+B[         21] = 16687c27
+B[         22] = d487b6c0
+B[         23] = c5ce51a8
+B[         24] = ecebc030
+B[         25] = 4f2066c6
+B[         26] = d2000000
+B[         27] = 7f000000
+B[         28] = 29000000
+B[         29] = fc000000
+B[         30] = a3000000
+B[         31] = 70000000
+B[         32] = 32000000
+B[         33] = de000000
+B[         34] = 65000000
+B[         35] = 82000000
+B[         36] = 26000000
+B[         37] = c6000000
+B[         38] = 4b000000
+GOLDEN[          0] = 0002ec73 0002446f 0002c168 00022ee6
+GOLDEN[          1] = 00049ea9 000300b7 0003fc23 00023297
+GOLDEN[          2] = 00048ea7 00038244 0004aaf5 0002fa3c
+GOLDEN[          3] = 0003ee14 0002af0e 0003417b 00029e9a
+GOLDEN[          4] = 0001e0d5 00034b57 000272c9 00018ffd
+GOLDEN[          5] = 00032c20 00040fb5 0002edf3 000338a1
+GOLDEN[          6] = 00038f75 00049e7a 00032ae0 000379d9
+GOLDEN[          7] = 0002f89e 0003c0e4 00032dc9 00032232
+GOLDEN[          8] = 0002c30e 00000000 00000000 00000000
+GOLDEN[          9] = 00034ada 00000000 00000000 00000000
+GOLDEN[         10] = 00033f1c 00000000 00000000 00000000
+GOLDEN[         11] = 00034b85 00000000 00000000 00000000
+patcount[          0] ap_start = 1
+patcount[          0] ap_start = 0
+C[          0] = 0002ec730002446f0002c16800022ee6
+C[          1] = 00049ea9000300b70003fc2300023297
+C[          2] = 00048ea7000382440004aaf50002fa3c
+C[          3] = 0003ee140002af0e0003417b00029e9a
+C[          4] = 0001e0d500034b57000272c900018ffd
+C[          5] = 00032c2000040fb50002edf3000338a1
+C[          6] = 00038f7500049e7a00032ae0000379d9
+C[          7] = 0002f89e0003c0e400032dc900032232
+C[          8] = 0002c30e000000000000000000000000
+C[          9] = 00034ada000000000000000000000000
+C[         10] = 00033f1c000000000000000000000000
+C[         11] = 00034b85000000000000000000000000
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Yes, you pass answoer   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+TPU test from FPGA side
+fsic_system_initial
+              116365=> soc POR Assert
+              116365=> fpga POR Assert
+              116365=> fpga reset Assert
+              116405=> soc POR De-Assert
+              116405=> fpga POR De-Assert
+              116445=> fpga reset De-Assert
+              116505=> fpga_as_to_is_init done
+              116545=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000001, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+              116745=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000001
+              117185=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000003, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+              117345=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000003
+Enable TPU IP
+Program ap_start=0
+              117585=> fpga_axilite_write_req in address phase = f0000000 - tvalid
+              117625=> fpga_axilite_write_req in address phase = f0000000 - transfer
+              117625=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              117665=> fpga_axilite_write_req in data phase = 00000000 - transfer
+Wait TPU is idle
+M:   2, K:   2 N:   2
+              117945=> fpga_axilite_write_req in address phase = f0000010 - tvalid
+              117985=> fpga_axilite_write_req in address phase = f0000010 - transfer
+              117985=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              118025=> fpga_axilite_write_req in data phase = 00000002 - transfer
+              118025=> fpga_axilite_write_req in address phase = f0000014 - tvalid
+              118065=> fpga_axilite_write_req in address phase = f0000014 - transfer
+              118065=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              118105=> fpga_axilite_write_req in data phase = 00000002 - transfer
+              118105=> fpga_axilite_write_req in address phase = f0000018 - tvalid
+              118145=> fpga_axilite_write_req in address phase = f0000018 - transfer
+              118145=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              118185=> fpga_axilite_write_req in data phase = 00000002 - transfer
+A[          0] = c4b10000
+              118185=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              118225=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              118225=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              118265=> fpga_axilite_write_req in data phase = 00000000 - transfer
+              118265=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              118305=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              118305=> fpga_axilite_write_req in data phase = c4b10000 - tvalid
+              118345=> fpga_axilite_write_req in data phase = c4b10000 - transfer
+A[          1] = 96d00000
+              118345=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              118385=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              118385=> fpga_axilite_write_req in data phase = 00000001 - tvalid
+              118425=> fpga_axilite_write_req in data phase = 00000001 - transfer
+              118425=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              118465=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              118465=> fpga_axilite_write_req in data phase = 96d00000 - tvalid
+              118505=> fpga_axilite_write_req in data phase = 96d00000 - transfer
+B[          0] = 174d0000
+              118505=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              118545=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              118545=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              118585=> fpga_axilite_write_req in data phase = 00000000 - transfer
+              118585=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              118625=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              118625=> fpga_axilite_write_req in data phase = 174d0000 - tvalid
+              120745=> fpga_axilite_write_req in data phase = 174d0000 - transfer
+B[          1] = 28490000
+              120745=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              120785=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              120785=> fpga_axilite_write_req in data phase = 00000001 - tvalid
+              120825=> fpga_axilite_write_req in data phase = 00000001 - transfer
+              120825=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              120865=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              120865=> fpga_axilite_write_req in data phase = 28490000 - tvalid
+              120905=> fpga_axilite_write_req in data phase = 28490000 - transfer
+GOLDEN[          0] = 0000290c 000065ba 00000000 00000000
+GOLDEN[          1] = 00003067 0000708d 00000000 00000000
+patcount[          0] ap_start = 1
+patcount[          0] ap_start = 0
+C[          0] = 0000290c000065ba0000000000000000
+C[          1] = 000030670000708d0000000000000000
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Yes, you pass answoer   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+fsic_system_initial
+              129805=> soc POR Assert
+              129805=> fpga POR Assert
+              129805=> fpga reset Assert
+              129845=> soc POR De-Assert
+              129845=> fpga POR De-Assert
+              129885=> fpga reset De-Assert
+              129945=> fpga_as_to_is_init done
+              129985=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000001, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+              130185=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000001
+              130625=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000003, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+              130785=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000003
+Enable TPU IP
+Program ap_start=0
+              131025=> fpga_axilite_write_req in address phase = f0000000 - tvalid
+              131065=> fpga_axilite_write_req in address phase = f0000000 - transfer
+              131065=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              131105=> fpga_axilite_write_req in data phase = 00000000 - transfer
+Wait TPU is idle
+M:   4, K:   4 N:   4
+              131385=> fpga_axilite_write_req in address phase = f0000010 - tvalid
+              131425=> fpga_axilite_write_req in address phase = f0000010 - transfer
+              131425=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              131465=> fpga_axilite_write_req in data phase = 00000004 - transfer
+              131465=> fpga_axilite_write_req in address phase = f0000014 - tvalid
+              131505=> fpga_axilite_write_req in address phase = f0000014 - transfer
+              131505=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              131545=> fpga_axilite_write_req in data phase = 00000004 - transfer
+              131545=> fpga_axilite_write_req in address phase = f0000018 - tvalid
+              131585=> fpga_axilite_write_req in address phase = f0000018 - transfer
+              131585=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              131625=> fpga_axilite_write_req in data phase = 00000004 - transfer
+A[          0] = 22cedb9b
+              131625=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              131665=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              131665=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              131705=> fpga_axilite_write_req in data phase = 00000000 - transfer
+              131705=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              131745=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              131745=> fpga_axilite_write_req in data phase = 22cedb9b - tvalid
+              131785=> fpga_axilite_write_req in data phase = 22cedb9b - transfer
+A[          1] = 3c5f4add
+              131785=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              131825=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              131825=> fpga_axilite_write_req in data phase = 00000001 - tvalid
+              131865=> fpga_axilite_write_req in data phase = 00000001 - transfer
+              131865=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              131905=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              131905=> fpga_axilite_write_req in data phase = 3c5f4add - tvalid
+              131945=> fpga_axilite_write_req in data phase = 3c5f4add - transfer
+A[          2] = acbf26c9
+              131945=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              131985=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              131985=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              132025=> fpga_axilite_write_req in data phase = 00000002 - transfer
+              132025=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              132065=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              132065=> fpga_axilite_write_req in data phase = acbf26c9 - tvalid
+              134185=> fpga_axilite_write_req in data phase = acbf26c9 - transfer
+A[          3] = 69779d06
+              134185=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              134225=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              134225=> fpga_axilite_write_req in data phase = 00000003 - tvalid
+              134265=> fpga_axilite_write_req in data phase = 00000003 - transfer
+              134265=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              134305=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              134305=> fpga_axilite_write_req in data phase = 69779d06 - tvalid
+              134345=> fpga_axilite_write_req in data phase = 69779d06 - transfer
+B[          0] = 6a945100
+              134345=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              134385=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              134385=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              134425=> fpga_axilite_write_req in data phase = 00000000 - transfer
+              134425=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              134465=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              134465=> fpga_axilite_write_req in data phase = 6a945100 - tvalid
+              134505=> fpga_axilite_write_req in data phase = 6a945100 - transfer
+B[          1] = f5137624
+              134505=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              134545=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              134545=> fpga_axilite_write_req in data phase = 00000001 - tvalid
+              136385=> fpga_axilite_write_req in data phase = 00000001 - transfer
+              136385=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              136425=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              136425=> fpga_axilite_write_req in data phase = f5137624 - tvalid
+              136465=> fpga_axilite_write_req in data phase = f5137624 - transfer
+B[          2] = 6c8788b2
+              136465=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              136505=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              136505=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              136545=> fpga_axilite_write_req in data phase = 00000002 - transfer
+              136545=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              136585=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              136585=> fpga_axilite_write_req in data phase = 6c8788b2 - tvalid
+              136625=> fpga_axilite_write_req in data phase = 6c8788b2 - transfer
+B[          3] = 37a2bc93
+              136625=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              136665=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              136665=> fpga_axilite_write_req in data phase = 00000003 - tvalid
+              136705=> fpga_axilite_write_req in data phase = 00000003 - transfer
+              136705=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              136745=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              136745=> fpga_axilite_write_req in data phase = 37a2bc93 - tvalid
+              138585=> fpga_axilite_write_req in data phase = 37a2bc93 - transfer
+GOLDEN[          0] = 0000a69f 0000b542 0000cee6 0000bc53
+GOLDEN[          1] = 00011a5c 00012e2c 000129d4 0000d67f
+GOLDEN[          2] = 0000d343 0000fb7e 0000eee3 00007efb
+GOLDEN[          3] = 000169c5 0000d7ce 00010619 0000ae48
+patcount[          0] ap_start = 1
+patcount[          0] ap_start = 0
+C[          0] = 0000a69f0000b5420000cee60000bc53
+C[          1] = 00011a5c00012e2c000129d40000d67f
+C[          2] = 0000d3430000fb7e0000eee300007efb
+C[          3] = 000169c50000d7ce000106190000ae48
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Yes, you pass answoer   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+fsic_system_initial
+              150285=> soc POR Assert
+              150285=> fpga POR Assert
+              150285=> fpga reset Assert
+              150325=> soc POR De-Assert
+              150325=> fpga POR De-Assert
+              150365=> fpga reset De-Assert
+              150425=> fpga_as_to_is_init done
+              150465=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000001, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+              150665=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000001
+              151105=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000003, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+              151265=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000003
+Enable TPU IP
+Program ap_start=0
+              151505=> fpga_axilite_write_req in address phase = f0000000 - tvalid
+              151545=> fpga_axilite_write_req in address phase = f0000000 - transfer
+              151545=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              151585=> fpga_axilite_write_req in data phase = 00000000 - transfer
+Wait TPU is idle
+M:   4, K:  15 N:   4
+              151865=> fpga_axilite_write_req in address phase = f0000010 - tvalid
+              151905=> fpga_axilite_write_req in address phase = f0000010 - transfer
+              151905=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              151945=> fpga_axilite_write_req in data phase = 00000004 - transfer
+              151945=> fpga_axilite_write_req in address phase = f0000014 - tvalid
+              151985=> fpga_axilite_write_req in address phase = f0000014 - transfer
+              151985=> fpga_axilite_write_req in data phase = 0000000f - tvalid
+              152025=> fpga_axilite_write_req in data phase = 0000000f - transfer
+              152025=> fpga_axilite_write_req in address phase = f0000018 - tvalid
+              152065=> fpga_axilite_write_req in address phase = f0000018 - transfer
+              152065=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              152105=> fpga_axilite_write_req in data phase = 00000004 - transfer
+A[          0] = b6f8f4b1
+              152105=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              152145=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              152145=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              152185=> fpga_axilite_write_req in data phase = 00000000 - transfer
+              152185=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              152225=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              152225=> fpga_axilite_write_req in data phase = b6f8f4b1 - tvalid
+              152265=> fpga_axilite_write_req in data phase = b6f8f4b1 - transfer
+A[          1] = 8de86439
+              152265=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              152305=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              152305=> fpga_axilite_write_req in data phase = 00000001 - tvalid
+              152345=> fpga_axilite_write_req in data phase = 00000001 - transfer
+              152345=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              152385=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              152385=> fpga_axilite_write_req in data phase = 8de86439 - tvalid
+              152425=> fpga_axilite_write_req in data phase = 8de86439 - transfer
+A[          2] = f0f6093b
+              152425=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              152465=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              152465=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              152505=> fpga_axilite_write_req in data phase = 00000002 - transfer
+              152505=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              152545=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              152545=> fpga_axilite_write_req in data phase = f0f6093b - tvalid
+              154665=> fpga_axilite_write_req in data phase = f0f6093b - transfer
+A[          3] = a9ee9e38
+              154665=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              154705=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              154705=> fpga_axilite_write_req in data phase = 00000003 - tvalid
+              154745=> fpga_axilite_write_req in data phase = 00000003 - transfer
+              154745=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              154785=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              154785=> fpga_axilite_write_req in data phase = a9ee9e38 - tvalid
+              154825=> fpga_axilite_write_req in data phase = a9ee9e38 - transfer
+A[          4] = 94089578
+              154825=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              154865=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              154865=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              154905=> fpga_axilite_write_req in data phase = 00000004 - transfer
+              154905=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              154945=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              154945=> fpga_axilite_write_req in data phase = 94089578 - tvalid
+              154985=> fpga_axilite_write_req in data phase = 94089578 - transfer
+A[          5] = 7e81ae09
+              154985=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              155025=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              155025=> fpga_axilite_write_req in data phase = 00000005 - tvalid
+              156865=> fpga_axilite_write_req in data phase = 00000005 - transfer
+              156865=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              156905=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              156905=> fpga_axilite_write_req in data phase = 7e81ae09 - tvalid
+              156945=> fpga_axilite_write_req in data phase = 7e81ae09 - transfer
+A[          6] = 82921064
+              156945=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              156985=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              156985=> fpga_axilite_write_req in data phase = 00000006 - tvalid
+              157025=> fpga_axilite_write_req in data phase = 00000006 - transfer
+              157025=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              157065=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              157065=> fpga_axilite_write_req in data phase = 82921064 - tvalid
+              157105=> fpga_axilite_write_req in data phase = 82921064 - transfer
+A[          7] = 4351f518
+              157105=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              157145=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              157145=> fpga_axilite_write_req in data phase = 00000007 - tvalid
+              157185=> fpga_axilite_write_req in data phase = 00000007 - transfer
+              157185=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              157225=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              157225=> fpga_axilite_write_req in data phase = 4351f518 - tvalid
+              159065=> fpga_axilite_write_req in data phase = 4351f518 - transfer
+A[          8] = 9bc356a6
+              159065=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              159105=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              159105=> fpga_axilite_write_req in data phase = 00000008 - tvalid
+              159145=> fpga_axilite_write_req in data phase = 00000008 - transfer
+              159145=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              159185=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              159185=> fpga_axilite_write_req in data phase = 9bc356a6 - tvalid
+              159225=> fpga_axilite_write_req in data phase = 9bc356a6 - transfer
+A[          9] = 7cc0e4aa
+              159225=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              159265=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              159265=> fpga_axilite_write_req in data phase = 00000009 - tvalid
+              159305=> fpga_axilite_write_req in data phase = 00000009 - transfer
+              159305=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              159345=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              159345=> fpga_axilite_write_req in data phase = 7cc0e4aa - tvalid
+              159385=> fpga_axilite_write_req in data phase = 7cc0e4aa - transfer
+A[         10] = 29bb6b86
+              159385=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              159425=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              159425=> fpga_axilite_write_req in data phase = 0000000a - tvalid
+              161265=> fpga_axilite_write_req in data phase = 0000000a - transfer
+              161265=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              161305=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              161305=> fpga_axilite_write_req in data phase = 29bb6b86 - tvalid
+              161345=> fpga_axilite_write_req in data phase = 29bb6b86 - transfer
+A[         11] = 05145773
+              161345=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              161385=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              161385=> fpga_axilite_write_req in data phase = 0000000b - tvalid
+              161425=> fpga_axilite_write_req in data phase = 0000000b - transfer
+              161425=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              161465=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              161465=> fpga_axilite_write_req in data phase = 05145773 - tvalid
+              161505=> fpga_axilite_write_req in data phase = 05145773 - transfer
+A[         12] = f945b260
+              161505=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              161545=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              161545=> fpga_axilite_write_req in data phase = 0000000c - tvalid
+              161585=> fpga_axilite_write_req in data phase = 0000000c - transfer
+              161585=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              161625=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              161625=> fpga_axilite_write_req in data phase = f945b260 - tvalid
+              163465=> fpga_axilite_write_req in data phase = f945b260 - transfer
+A[         13] = 20c8ef9c
+              163465=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              163505=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              163505=> fpga_axilite_write_req in data phase = 0000000d - tvalid
+              163545=> fpga_axilite_write_req in data phase = 0000000d - transfer
+              163545=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              163585=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              163585=> fpga_axilite_write_req in data phase = 20c8ef9c - tvalid
+              163625=> fpga_axilite_write_req in data phase = 20c8ef9c - transfer
+A[         14] = a4377b06
+              163625=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              163665=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              163665=> fpga_axilite_write_req in data phase = 0000000e - tvalid
+              163705=> fpga_axilite_write_req in data phase = 0000000e - transfer
+              163705=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              163745=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              163745=> fpga_axilite_write_req in data phase = a4377b06 - tvalid
+              163785=> fpga_axilite_write_req in data phase = a4377b06 - transfer
+B[          0] = a0511bac
+              163785=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              163825=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              163825=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              165665=> fpga_axilite_write_req in data phase = 00000000 - transfer
+              165665=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              165705=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              165705=> fpga_axilite_write_req in data phase = a0511bac - tvalid
+              165745=> fpga_axilite_write_req in data phase = a0511bac - transfer
+B[          1] = 3097fef4
+              165745=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              165785=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              165785=> fpga_axilite_write_req in data phase = 00000001 - tvalid
+              165825=> fpga_axilite_write_req in data phase = 00000001 - transfer
+              165825=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              165865=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              165865=> fpga_axilite_write_req in data phase = 3097fef4 - tvalid
+              165905=> fpga_axilite_write_req in data phase = 3097fef4 - transfer
+B[          2] = e04690e8
+              165905=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              165945=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              165945=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              165985=> fpga_axilite_write_req in data phase = 00000002 - transfer
+              165985=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              166025=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              166025=> fpga_axilite_write_req in data phase = e04690e8 - tvalid
+              167865=> fpga_axilite_write_req in data phase = e04690e8 - transfer
+B[          3] = 2b0de617
+              167865=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              167905=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              167905=> fpga_axilite_write_req in data phase = 00000003 - tvalid
+              167945=> fpga_axilite_write_req in data phase = 00000003 - transfer
+              167945=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              167985=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              167985=> fpga_axilite_write_req in data phase = 2b0de617 - tvalid
+              168025=> fpga_axilite_write_req in data phase = 2b0de617 - transfer
+B[          4] = f14e6f04
+              168025=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              168065=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              168065=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              168105=> fpga_axilite_write_req in data phase = 00000004 - transfer
+              168105=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              168145=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              168145=> fpga_axilite_write_req in data phase = f14e6f04 - tvalid
+              168185=> fpga_axilite_write_req in data phase = f14e6f04 - transfer
+B[          5] = bceb8eb2
+              168185=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              168225=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              168225=> fpga_axilite_write_req in data phase = 00000005 - tvalid
+              170065=> fpga_axilite_write_req in data phase = 00000005 - transfer
+              170065=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              170105=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              170105=> fpga_axilite_write_req in data phase = bceb8eb2 - tvalid
+              170145=> fpga_axilite_write_req in data phase = bceb8eb2 - transfer
+B[          6] = 7abf0f79
+              170145=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              170185=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              170185=> fpga_axilite_write_req in data phase = 00000006 - tvalid
+              170225=> fpga_axilite_write_req in data phase = 00000006 - transfer
+              170225=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              170265=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              170265=> fpga_axilite_write_req in data phase = 7abf0f79 - tvalid
+              170305=> fpga_axilite_write_req in data phase = 7abf0f79 - transfer
+B[          7] = 31631ed6
+              170305=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              170345=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              170345=> fpga_axilite_write_req in data phase = 00000007 - tvalid
+              170385=> fpga_axilite_write_req in data phase = 00000007 - transfer
+              170385=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              170425=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              170425=> fpga_axilite_write_req in data phase = 31631ed6 - tvalid
+              172265=> fpga_axilite_write_req in data phase = 31631ed6 - transfer
+B[          8] = 40fc95b1
+              172265=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              172305=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              172305=> fpga_axilite_write_req in data phase = 00000008 - tvalid
+              172345=> fpga_axilite_write_req in data phase = 00000008 - transfer
+              172345=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              172385=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              172385=> fpga_axilite_write_req in data phase = 40fc95b1 - tvalid
+              172425=> fpga_axilite_write_req in data phase = 40fc95b1 - transfer
+B[          9] = 0b292103
+              172425=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              172465=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              172465=> fpga_axilite_write_req in data phase = 00000009 - tvalid
+              172505=> fpga_axilite_write_req in data phase = 00000009 - transfer
+              172505=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              172545=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              172545=> fpga_axilite_write_req in data phase = 0b292103 - tvalid
+              172585=> fpga_axilite_write_req in data phase = 0b292103 - transfer
+B[         10] = 31fbdc55
+              172585=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              172625=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              172625=> fpga_axilite_write_req in data phase = 0000000a - tvalid
+              174465=> fpga_axilite_write_req in data phase = 0000000a - transfer
+              174465=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              174505=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              174505=> fpga_axilite_write_req in data phase = 31fbdc55 - tvalid
+              174545=> fpga_axilite_write_req in data phase = 31fbdc55 - transfer
+B[         11] = 6e50f79f
+              174545=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              174585=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              174585=> fpga_axilite_write_req in data phase = 0000000b - tvalid
+              174625=> fpga_axilite_write_req in data phase = 0000000b - transfer
+              174625=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              174665=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              174665=> fpga_axilite_write_req in data phase = 6e50f79f - tvalid
+              174705=> fpga_axilite_write_req in data phase = 6e50f79f - transfer
+B[         12] = a7d64aaa
+              174705=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              174745=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              174745=> fpga_axilite_write_req in data phase = 0000000c - tvalid
+              174785=> fpga_axilite_write_req in data phase = 0000000c - transfer
+              174785=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              174825=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              174825=> fpga_axilite_write_req in data phase = a7d64aaa - tvalid
+              176665=> fpga_axilite_write_req in data phase = a7d64aaa - transfer
+B[         13] = 23edd198
+              176665=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              176705=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              176705=> fpga_axilite_write_req in data phase = 0000000d - tvalid
+              176745=> fpga_axilite_write_req in data phase = 0000000d - transfer
+              176745=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              176785=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              176785=> fpga_axilite_write_req in data phase = 23edd198 - tvalid
+              176825=> fpga_axilite_write_req in data phase = 23edd198 - transfer
+B[         14] = 9cecc55f
+              176825=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              176865=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              176865=> fpga_axilite_write_req in data phase = 0000000e - tvalid
+              176905=> fpga_axilite_write_req in data phase = 0000000e - transfer
+              176905=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              176945=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              176945=> fpga_axilite_write_req in data phase = 9cecc55f - tvalid
+              176985=> fpga_axilite_write_req in data phase = 9cecc55f - transfer
+GOLDEN[          0] = 0003ee08 00044dc8 0003c606 00042b48
+GOLDEN[          1] = 00035055 0004ed9d 0004dd6a 0004e72d
+GOLDEN[          2] = 00034924 0004ab33 0004234e 000432bb
+GOLDEN[          3] = 000235a6 00033979 0002d8ca 0002ba7f
+patcount[          0] ap_start = 1
+patcount[          0] ap_start = 0
+C[          0] = 0003ee0800044dc80003c60600042b48
+C[          1] = 000350550004ed9d0004dd6a0004e72d
+C[          2] = 000349240004ab330004234e000432bb
+C[          3] = 000235a6000339790002d8ca0002ba7f
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Yes, you pass answoer   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+fsic_system_initial
+              191485=> soc POR Assert
+              191485=> fpga POR Assert
+              191485=> fpga reset Assert
+              191525=> soc POR De-Assert
+              191525=> fpga POR De-Assert
+              191565=> fpga reset De-Assert
+              191625=> fpga_as_to_is_init done
+              191665=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000001, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+              191865=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000001
+              192305=> fpga_cfg_write : fpga_axi_awaddr=0000, fpga_axi_awvalid=1, fpga_axi_awready=1, fpga_axi_wdata=00000003, axi_wstrb=1, fpga_axi_wvalid=1, fpga_axi_wready=1
+              192465=> soc_is_cfg_write : wbs_adr=30003000, wbs_sel=0001, wbs_wdata=00000003
+Enable TPU IP
+Program ap_start=0
+              192705=> fpga_axilite_write_req in address phase = f0000000 - tvalid
+              192745=> fpga_axilite_write_req in address phase = f0000000 - transfer
+              192745=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              192785=> fpga_axilite_write_req in data phase = 00000000 - transfer
+Wait TPU is idle
+M:   4, K:  13 N:   9
+              193065=> fpga_axilite_write_req in address phase = f0000010 - tvalid
+              193105=> fpga_axilite_write_req in address phase = f0000010 - transfer
+              193105=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              193145=> fpga_axilite_write_req in data phase = 00000004 - transfer
+              193145=> fpga_axilite_write_req in address phase = f0000014 - tvalid
+              193185=> fpga_axilite_write_req in address phase = f0000014 - transfer
+              193185=> fpga_axilite_write_req in data phase = 0000000d - tvalid
+              193225=> fpga_axilite_write_req in data phase = 0000000d - transfer
+              193225=> fpga_axilite_write_req in address phase = f0000018 - tvalid
+              193265=> fpga_axilite_write_req in address phase = f0000018 - transfer
+              193265=> fpga_axilite_write_req in data phase = 00000009 - tvalid
+              193305=> fpga_axilite_write_req in data phase = 00000009 - transfer
+A[          0] = 28966bef
+              193305=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              193345=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              193345=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              193385=> fpga_axilite_write_req in data phase = 00000000 - transfer
+              193385=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              193425=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              193425=> fpga_axilite_write_req in data phase = 28966bef - tvalid
+              193465=> fpga_axilite_write_req in data phase = 28966bef - transfer
+A[          1] = 9fa38522
+              193465=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              193505=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              193505=> fpga_axilite_write_req in data phase = 00000001 - tvalid
+              193545=> fpga_axilite_write_req in data phase = 00000001 - transfer
+              193545=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              193585=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              193585=> fpga_axilite_write_req in data phase = 9fa38522 - tvalid
+              193625=> fpga_axilite_write_req in data phase = 9fa38522 - transfer
+A[          2] = 09f6e93e
+              193625=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              193665=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              193665=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              193705=> fpga_axilite_write_req in data phase = 00000002 - transfer
+              193705=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              193745=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              193745=> fpga_axilite_write_req in data phase = 09f6e93e - tvalid
+              195865=> fpga_axilite_write_req in data phase = 09f6e93e - transfer
+A[          3] = 6fc96821
+              195865=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              195905=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              195905=> fpga_axilite_write_req in data phase = 00000003 - tvalid
+              195945=> fpga_axilite_write_req in data phase = 00000003 - transfer
+              195945=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              195985=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              195985=> fpga_axilite_write_req in data phase = 6fc96821 - tvalid
+              196025=> fpga_axilite_write_req in data phase = 6fc96821 - transfer
+A[          4] = de7f68c1
+              196025=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              196065=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              196065=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              196105=> fpga_axilite_write_req in data phase = 00000004 - transfer
+              196105=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              196145=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              196145=> fpga_axilite_write_req in data phase = de7f68c1 - tvalid
+              196185=> fpga_axilite_write_req in data phase = de7f68c1 - transfer
+A[          5] = 81759a31
+              196185=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              196225=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              196225=> fpga_axilite_write_req in data phase = 00000005 - tvalid
+              198065=> fpga_axilite_write_req in data phase = 00000005 - transfer
+              198065=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              198105=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              198105=> fpga_axilite_write_req in data phase = 81759a31 - tvalid
+              198145=> fpga_axilite_write_req in data phase = 81759a31 - transfer
+A[          6] = 1edde54a
+              198145=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              198185=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              198185=> fpga_axilite_write_req in data phase = 00000006 - tvalid
+              198225=> fpga_axilite_write_req in data phase = 00000006 - transfer
+              198225=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              198265=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              198265=> fpga_axilite_write_req in data phase = 1edde54a - tvalid
+              198305=> fpga_axilite_write_req in data phase = 1edde54a - transfer
+A[          7] = 7d3c2f4d
+              198305=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              198345=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              198345=> fpga_axilite_write_req in data phase = 00000007 - tvalid
+              198385=> fpga_axilite_write_req in data phase = 00000007 - transfer
+              198385=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              198425=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              198425=> fpga_axilite_write_req in data phase = 7d3c2f4d - tvalid
+              200265=> fpga_axilite_write_req in data phase = 7d3c2f4d - transfer
+A[          8] = 6e70fdbc
+              200265=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              200305=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              200305=> fpga_axilite_write_req in data phase = 00000008 - tvalid
+              200345=> fpga_axilite_write_req in data phase = 00000008 - transfer
+              200345=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              200385=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              200385=> fpga_axilite_write_req in data phase = 6e70fdbc - tvalid
+              200425=> fpga_axilite_write_req in data phase = 6e70fdbc - transfer
+A[          9] = 11592dc9
+              200425=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              200465=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              200465=> fpga_axilite_write_req in data phase = 00000009 - tvalid
+              200505=> fpga_axilite_write_req in data phase = 00000009 - transfer
+              200505=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              200545=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              200545=> fpga_axilite_write_req in data phase = 11592dc9 - tvalid
+              200585=> fpga_axilite_write_req in data phase = 11592dc9 - transfer
+A[         10] = 472dd44a
+              200585=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              200625=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              200625=> fpga_axilite_write_req in data phase = 0000000a - tvalid
+              202465=> fpga_axilite_write_req in data phase = 0000000a - transfer
+              202465=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              202505=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              202505=> fpga_axilite_write_req in data phase = 472dd44a - tvalid
+              202545=> fpga_axilite_write_req in data phase = 472dd44a - transfer
+A[         11] = 8c448a94
+              202545=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              202585=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              202585=> fpga_axilite_write_req in data phase = 0000000b - tvalid
+              202625=> fpga_axilite_write_req in data phase = 0000000b - transfer
+              202625=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              202665=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              202665=> fpga_axilite_write_req in data phase = 8c448a94 - tvalid
+              202705=> fpga_axilite_write_req in data phase = 8c448a94 - transfer
+A[         12] = 0658c5d0
+              202705=> fpga_axilite_write_req in address phase = f0000020 - tvalid
+              202745=> fpga_axilite_write_req in address phase = f0000020 - transfer
+              202745=> fpga_axilite_write_req in data phase = 0000000c - tvalid
+              202785=> fpga_axilite_write_req in data phase = 0000000c - transfer
+              202785=> fpga_axilite_write_req in address phase = f0000024 - tvalid
+              202825=> fpga_axilite_write_req in address phase = f0000024 - transfer
+              202825=> fpga_axilite_write_req in data phase = 0658c5d0 - tvalid
+              204665=> fpga_axilite_write_req in data phase = 0658c5d0 - transfer
+B[          0] = b75c834f
+              204665=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              204705=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              204705=> fpga_axilite_write_req in data phase = 00000000 - tvalid
+              204745=> fpga_axilite_write_req in data phase = 00000000 - transfer
+              204745=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              204785=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              204785=> fpga_axilite_write_req in data phase = b75c834f - tvalid
+              204825=> fpga_axilite_write_req in data phase = b75c834f - transfer
+B[          1] = 5868fe2b
+              204825=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              204865=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              204865=> fpga_axilite_write_req in data phase = 00000001 - tvalid
+              204905=> fpga_axilite_write_req in data phase = 00000001 - transfer
+              204905=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              204945=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              204945=> fpga_axilite_write_req in data phase = 5868fe2b - tvalid
+              204985=> fpga_axilite_write_req in data phase = 5868fe2b - transfer
+B[          2] = f1aa831a
+              204985=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              205025=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              205025=> fpga_axilite_write_req in data phase = 00000002 - tvalid
+              206865=> fpga_axilite_write_req in data phase = 00000002 - transfer
+              206865=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              206905=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              206905=> fpga_axilite_write_req in data phase = f1aa831a - tvalid
+              206945=> fpga_axilite_write_req in data phase = f1aa831a - transfer
+B[          3] = d13b6b04
+              206945=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              206985=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              206985=> fpga_axilite_write_req in data phase = 00000003 - tvalid
+              207025=> fpga_axilite_write_req in data phase = 00000003 - transfer
+              207025=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              207065=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              207065=> fpga_axilite_write_req in data phase = d13b6b04 - tvalid
+              207105=> fpga_axilite_write_req in data phase = d13b6b04 - transfer
+B[          4] = ee68e0ea
+              207105=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              207145=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              207145=> fpga_axilite_write_req in data phase = 00000004 - tvalid
+              207185=> fpga_axilite_write_req in data phase = 00000004 - transfer
+              207185=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              207225=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              207225=> fpga_axilite_write_req in data phase = ee68e0ea - tvalid
+              209065=> fpga_axilite_write_req in data phase = ee68e0ea - transfer
+B[          5] = bba2ba21
+              209065=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              209105=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              209105=> fpga_axilite_write_req in data phase = 00000005 - tvalid
+              209145=> fpga_axilite_write_req in data phase = 00000005 - transfer
+              209145=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              209185=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              209185=> fpga_axilite_write_req in data phase = bba2ba21 - tvalid
+              209225=> fpga_axilite_write_req in data phase = bba2ba21 - transfer
+B[          6] = db64d4a6
+              209225=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              209265=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              209265=> fpga_axilite_write_req in data phase = 00000006 - tvalid
+              209305=> fpga_axilite_write_req in data phase = 00000006 - transfer
+              209305=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              209345=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              209345=> fpga_axilite_write_req in data phase = db64d4a6 - tvalid
+              209385=> fpga_axilite_write_req in data phase = db64d4a6 - transfer
+B[          7] = aec85273
+              209385=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              209425=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              209425=> fpga_axilite_write_req in data phase = 00000007 - tvalid
+              211265=> fpga_axilite_write_req in data phase = 00000007 - transfer
+              211265=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              211305=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              211305=> fpga_axilite_write_req in data phase = aec85273 - tvalid
+              211345=> fpga_axilite_write_req in data phase = aec85273 - transfer
+B[          8] = 4dfe8526
+              211345=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              211385=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              211385=> fpga_axilite_write_req in data phase = 00000008 - tvalid
+              211425=> fpga_axilite_write_req in data phase = 00000008 - transfer
+              211425=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              211465=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              211465=> fpga_axilite_write_req in data phase = 4dfe8526 - tvalid
+              211505=> fpga_axilite_write_req in data phase = 4dfe8526 - transfer
+B[          9] = cd3f4359
+              211505=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              211545=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              211545=> fpga_axilite_write_req in data phase = 00000009 - tvalid
+              211585=> fpga_axilite_write_req in data phase = 00000009 - transfer
+              211585=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              211625=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              211625=> fpga_axilite_write_req in data phase = cd3f4359 - tvalid
+              213465=> fpga_axilite_write_req in data phase = cd3f4359 - transfer
+B[         10] = 1703cdf6
+              213465=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              213505=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              213505=> fpga_axilite_write_req in data phase = 0000000a - tvalid
+              213545=> fpga_axilite_write_req in data phase = 0000000a - transfer
+              213545=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              213585=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              213585=> fpga_axilite_write_req in data phase = 1703cdf6 - tvalid
+              213625=> fpga_axilite_write_req in data phase = 1703cdf6 - transfer
+B[         11] = b68702f0
+              213625=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              213665=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              213665=> fpga_axilite_write_req in data phase = 0000000b - tvalid
+              213705=> fpga_axilite_write_req in data phase = 0000000b - transfer
+              213705=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              213745=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              213745=> fpga_axilite_write_req in data phase = b68702f0 - tvalid
+              213785=> fpga_axilite_write_req in data phase = b68702f0 - transfer
+B[         12] = 601fa10e
+              213785=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              213825=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              213825=> fpga_axilite_write_req in data phase = 0000000c - tvalid
+              215665=> fpga_axilite_write_req in data phase = 0000000c - transfer
+              215665=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              215705=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              215705=> fpga_axilite_write_req in data phase = 601fa10e - tvalid
+              215745=> fpga_axilite_write_req in data phase = 601fa10e - transfer
+B[         13] = 7bac4ede
+              215745=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              215785=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              215785=> fpga_axilite_write_req in data phase = 0000000d - tvalid
+              215825=> fpga_axilite_write_req in data phase = 0000000d - transfer
+              215825=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              215865=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              215865=> fpga_axilite_write_req in data phase = 7bac4ede - tvalid
+              215905=> fpga_axilite_write_req in data phase = 7bac4ede - transfer
+B[         14] = 006d232f
+              215905=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              215945=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              215945=> fpga_axilite_write_req in data phase = 0000000e - tvalid
+              215985=> fpga_axilite_write_req in data phase = 0000000e - transfer
+              215985=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              216025=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              216025=> fpga_axilite_write_req in data phase = 006d232f - tvalid
+              217865=> fpga_axilite_write_req in data phase = 006d232f - transfer
+B[         15] = 67b8578f
+              217865=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              217905=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              217905=> fpga_axilite_write_req in data phase = 0000000f - tvalid
+              217945=> fpga_axilite_write_req in data phase = 0000000f - transfer
+              217945=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              217985=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              217985=> fpga_axilite_write_req in data phase = 67b8578f - tvalid
+              218025=> fpga_axilite_write_req in data phase = 67b8578f - transfer
+B[         16] = ce9ae8db
+              218025=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              218065=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              218065=> fpga_axilite_write_req in data phase = 00000010 - tvalid
+              218105=> fpga_axilite_write_req in data phase = 00000010 - transfer
+              218105=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              218145=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              218145=> fpga_axilite_write_req in data phase = ce9ae8db - tvalid
+              218185=> fpga_axilite_write_req in data phase = ce9ae8db - transfer
+B[         17] = 34f0fd45
+              218185=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              218225=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              218225=> fpga_axilite_write_req in data phase = 00000011 - tvalid
+              220065=> fpga_axilite_write_req in data phase = 00000011 - transfer
+              220065=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              220105=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              220105=> fpga_axilite_write_req in data phase = 34f0fd45 - tvalid
+              220145=> fpga_axilite_write_req in data phase = 34f0fd45 - transfer
+B[         18] = 27ea473c
+              220145=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              220185=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              220185=> fpga_axilite_write_req in data phase = 00000012 - tvalid
+              220225=> fpga_axilite_write_req in data phase = 00000012 - transfer
+              220225=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              220265=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              220265=> fpga_axilite_write_req in data phase = 27ea473c - tvalid
+              220305=> fpga_axilite_write_req in data phase = 27ea473c - transfer
+B[         19] = e2711b64
+              220305=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              220345=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              220345=> fpga_axilite_write_req in data phase = 00000013 - tvalid
+              220385=> fpga_axilite_write_req in data phase = 00000013 - transfer
+              220385=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              220425=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              220425=> fpga_axilite_write_req in data phase = e2711b64 - tvalid
+              222265=> fpga_axilite_write_req in data phase = e2711b64 - transfer
+B[         20] = 8cc54938
+              222265=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              222305=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              222305=> fpga_axilite_write_req in data phase = 00000014 - tvalid
+              222345=> fpga_axilite_write_req in data phase = 00000014 - transfer
+              222345=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              222385=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              222385=> fpga_axilite_write_req in data phase = 8cc54938 - tvalid
+              222425=> fpga_axilite_write_req in data phase = 8cc54938 - transfer
+B[         21] = 16687c27
+              222425=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              222465=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              222465=> fpga_axilite_write_req in data phase = 00000015 - tvalid
+              222505=> fpga_axilite_write_req in data phase = 00000015 - transfer
+              222505=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              222545=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              222545=> fpga_axilite_write_req in data phase = 16687c27 - tvalid
+              222585=> fpga_axilite_write_req in data phase = 16687c27 - transfer
+B[         22] = d487b6c0
+              222585=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              222625=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              222625=> fpga_axilite_write_req in data phase = 00000016 - tvalid
+              224465=> fpga_axilite_write_req in data phase = 00000016 - transfer
+              224465=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              224505=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              224505=> fpga_axilite_write_req in data phase = d487b6c0 - tvalid
+              224545=> fpga_axilite_write_req in data phase = d487b6c0 - transfer
+B[         23] = c5ce51a8
+              224545=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              224585=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              224585=> fpga_axilite_write_req in data phase = 00000017 - tvalid
+              224625=> fpga_axilite_write_req in data phase = 00000017 - transfer
+              224625=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              224665=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              224665=> fpga_axilite_write_req in data phase = c5ce51a8 - tvalid
+              224705=> fpga_axilite_write_req in data phase = c5ce51a8 - transfer
+B[         24] = ecebc030
+              224705=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              224745=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              224745=> fpga_axilite_write_req in data phase = 00000018 - tvalid
+              224785=> fpga_axilite_write_req in data phase = 00000018 - transfer
+              224785=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              224825=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              224825=> fpga_axilite_write_req in data phase = ecebc030 - tvalid
+              226665=> fpga_axilite_write_req in data phase = ecebc030 - transfer
+B[         25] = 4f2066c6
+              226665=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              226705=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              226705=> fpga_axilite_write_req in data phase = 00000019 - tvalid
+              226745=> fpga_axilite_write_req in data phase = 00000019 - transfer
+              226745=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              226785=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              226785=> fpga_axilite_write_req in data phase = 4f2066c6 - tvalid
+              226825=> fpga_axilite_write_req in data phase = 4f2066c6 - transfer
+B[         26] = d2000000
+              226825=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              226865=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              226865=> fpga_axilite_write_req in data phase = 0000001a - tvalid
+              226905=> fpga_axilite_write_req in data phase = 0000001a - transfer
+              226905=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              226945=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              226945=> fpga_axilite_write_req in data phase = d2000000 - tvalid
+              226985=> fpga_axilite_write_req in data phase = d2000000 - transfer
+B[         27] = 7f000000
+              226985=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              227025=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              227025=> fpga_axilite_write_req in data phase = 0000001b - tvalid
+              228865=> fpga_axilite_write_req in data phase = 0000001b - transfer
+              228865=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              228905=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              228905=> fpga_axilite_write_req in data phase = 7f000000 - tvalid
+              228945=> fpga_axilite_write_req in data phase = 7f000000 - transfer
+B[         28] = 29000000
+              228945=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              228985=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              228985=> fpga_axilite_write_req in data phase = 0000001c - tvalid
+              229025=> fpga_axilite_write_req in data phase = 0000001c - transfer
+              229025=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              229065=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              229065=> fpga_axilite_write_req in data phase = 29000000 - tvalid
+              229105=> fpga_axilite_write_req in data phase = 29000000 - transfer
+B[         29] = fc000000
+              229105=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              229145=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              229145=> fpga_axilite_write_req in data phase = 0000001d - tvalid
+              229185=> fpga_axilite_write_req in data phase = 0000001d - transfer
+              229185=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              229225=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              229225=> fpga_axilite_write_req in data phase = fc000000 - tvalid
+              231065=> fpga_axilite_write_req in data phase = fc000000 - transfer
+B[         30] = a3000000
+              231065=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              231105=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              231105=> fpga_axilite_write_req in data phase = 0000001e - tvalid
+              231145=> fpga_axilite_write_req in data phase = 0000001e - transfer
+              231145=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              231185=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              231185=> fpga_axilite_write_req in data phase = a3000000 - tvalid
+              231225=> fpga_axilite_write_req in data phase = a3000000 - transfer
+B[         31] = 70000000
+              231225=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              231265=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              231265=> fpga_axilite_write_req in data phase = 0000001f - tvalid
+              231305=> fpga_axilite_write_req in data phase = 0000001f - transfer
+              231305=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              231345=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              231345=> fpga_axilite_write_req in data phase = 70000000 - tvalid
+              231385=> fpga_axilite_write_req in data phase = 70000000 - transfer
+B[         32] = 32000000
+              231385=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              231425=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              231425=> fpga_axilite_write_req in data phase = 00000020 - tvalid
+              233265=> fpga_axilite_write_req in data phase = 00000020 - transfer
+              233265=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              233305=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              233305=> fpga_axilite_write_req in data phase = 32000000 - tvalid
+              233345=> fpga_axilite_write_req in data phase = 32000000 - transfer
+B[         33] = de000000
+              233345=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              233385=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              233385=> fpga_axilite_write_req in data phase = 00000021 - tvalid
+              233425=> fpga_axilite_write_req in data phase = 00000021 - transfer
+              233425=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              233465=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              233465=> fpga_axilite_write_req in data phase = de000000 - tvalid
+              233505=> fpga_axilite_write_req in data phase = de000000 - transfer
+B[         34] = 65000000
+              233505=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              233545=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              233545=> fpga_axilite_write_req in data phase = 00000022 - tvalid
+              233585=> fpga_axilite_write_req in data phase = 00000022 - transfer
+              233585=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              233625=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              233625=> fpga_axilite_write_req in data phase = 65000000 - tvalid
+              235465=> fpga_axilite_write_req in data phase = 65000000 - transfer
+B[         35] = 82000000
+              235465=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              235505=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              235505=> fpga_axilite_write_req in data phase = 00000023 - tvalid
+              235545=> fpga_axilite_write_req in data phase = 00000023 - transfer
+              235545=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              235585=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              235585=> fpga_axilite_write_req in data phase = 82000000 - tvalid
+              235625=> fpga_axilite_write_req in data phase = 82000000 - transfer
+B[         36] = 26000000
+              235625=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              235665=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              235665=> fpga_axilite_write_req in data phase = 00000024 - tvalid
+              235705=> fpga_axilite_write_req in data phase = 00000024 - transfer
+              235705=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              235745=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              235745=> fpga_axilite_write_req in data phase = 26000000 - tvalid
+              235785=> fpga_axilite_write_req in data phase = 26000000 - transfer
+B[         37] = c6000000
+              235785=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              235825=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              235825=> fpga_axilite_write_req in data phase = 00000025 - tvalid
+              237665=> fpga_axilite_write_req in data phase = 00000025 - transfer
+              237665=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              237705=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              237705=> fpga_axilite_write_req in data phase = c6000000 - tvalid
+              237745=> fpga_axilite_write_req in data phase = c6000000 - transfer
+B[         38] = 4b000000
+              237745=> fpga_axilite_write_req in address phase = f0000030 - tvalid
+              237785=> fpga_axilite_write_req in address phase = f0000030 - transfer
+              237785=> fpga_axilite_write_req in data phase = 00000026 - tvalid
+              237825=> fpga_axilite_write_req in data phase = 00000026 - transfer
+              237825=> fpga_axilite_write_req in address phase = f0000034 - tvalid
+              237865=> fpga_axilite_write_req in address phase = f0000034 - transfer
+              237865=> fpga_axilite_write_req in data phase = 4b000000 - tvalid
+              237905=> fpga_axilite_write_req in data phase = 4b000000 - transfer
+GOLDEN[          0] = 0002ec73 0002446f 0002c168 00022ee6
+GOLDEN[          1] = 00049ea9 000300b7 0003fc23 00023297
+GOLDEN[          2] = 00048ea7 00038244 0004aaf5 0002fa3c
+GOLDEN[          3] = 0003ee14 0002af0e 0003417b 00029e9a
+GOLDEN[          4] = 0001e0d5 00034b57 000272c9 00018ffd
+GOLDEN[          5] = 00032c20 00040fb5 0002edf3 000338a1
+GOLDEN[          6] = 00038f75 00049e7a 00032ae0 000379d9
+GOLDEN[          7] = 0002f89e 0003c0e4 00032dc9 00032232
+GOLDEN[          8] = 0002c30e 00000000 00000000 00000000
+GOLDEN[          9] = 00034ada 00000000 00000000 00000000
+GOLDEN[         10] = 00033f1c 00000000 00000000 00000000
+GOLDEN[         11] = 00034b85 00000000 00000000 00000000
+patcount[          0] ap_start = 1
+patcount[          0] ap_start = 0
+C[          0] = 0002ec730002446f0002c16800022ee6
+C[          1] = 00049ea9000300b70003fc2300023297
+C[          2] = 00048ea7000382440004aaf50002fa3c
+C[          3] = 0003ee140002af0e0003417b00029e9a
+C[          4] = 0001e0d500034b57000272c900018ffd
+C[          5] = 00032c2000040fb50002edf3000338a1
+C[          6] = 00038f7500049e7a00032ae0000379d9
+C[          7] = 0002f89e0003c0e400032dc900032232
+C[          8] = 0002c30e000000000000000000000000
+C[          9] = 00034ada000000000000000000000000
+C[         10] = 00033f1c000000000000000000000000
+C[         11] = 00034b85000000000000000000000000
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Yes, you pass answoer   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+=============================================================================================
+=============================================================================================
+=============================================================================================
+$finish called at time : 271965 ns : File "/home/ubuntu/Desktop/ASoC_Final/rtl/user/testbench/tb_fsic.v" Line 395
+run: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 2859.367 ; gain = 8.027 ; free physical = 908 ; free virtual = 1296
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Jun 17 22:21:56 2024...

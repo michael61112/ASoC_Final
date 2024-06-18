@@ -1,0 +1,69 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'USER_PRJ1' contains 4 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : USER_PRJ1
+Version: T-2022.03
+Date   : Mon Jun 17 23:24:16 2024
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt0p8v25c   Library: saed14rvt_tt0p8v25c
+Wire Load Model Mode: top
+
+  Startpoint: My_TPU/systolic_array1/state_reg[1]
+              (rising edge-triggered flip-flop clocked by axi_clk')
+  Endpoint: My_TPU/systolic_array1/addr_n3_reg[10]
+            (rising edge-triggered flip-flop clocked by axi_clk)
+  Path Group: axi_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  USER_PRJ1          35000                 saed14rvt_tt0p8v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock axi_clk' (rise edge)                              1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  My_TPU/systolic_array1/state_reg[1]/CK (SAEDRVT14_FDP_V2_2)
+                                                          0.00       1.00 r
+  My_TPU/systolic_array1/state_reg[1]/Q (SAEDRVT14_FDP_V2_2)
+                                                          0.09       1.09 r
+  My_TPU/systolic_array1/U4/X (SAEDRVT14_NR2_MM_0P5)      0.01       1.11 f
+  My_TPU/systolic_array1/U28/X (SAEDRVT14_INV_1)          0.02       1.13 r
+  My_TPU/systolic_array1/U19/X (SAEDRVT14_BUF_3)          0.03       1.16 r
+  My_TPU/systolic_array1/U18/X (SAEDRVT14_BUF_6)          0.03       1.19 r
+  My_TPU/systolic_array1/U1842/X (SAEDRVT14_INV_S_20)     0.20       1.39 f
+  My_TPU/systolic_array1/U867/X (SAEDRVT14_NR2_1)         0.02       1.42 r
+  My_TPU/systolic_array1/U29/X (SAEDRVT14_BUF_PS_1P5)     0.01       1.43 r
+  My_TPU/systolic_array1/U31/X (SAEDRVT14_INV_S_0P5)      0.01       1.44 f
+  My_TPU/systolic_array1/U23/X (SAEDRVT14_BUF_U_0P5)      0.02       1.47 f
+  My_TPU/systolic_array1/U1832/X (SAEDRVT14_BUF_ECO_7)
+                                                          0.04       1.51 f
+  My_TPU/systolic_array1/U1813/X (SAEDRVT14_INV_S_20)     0.17       1.68 r
+  My_TPU/systolic_array1/U725/X (SAEDRVT14_AO221_0P5)     0.03       1.71 r
+  My_TPU/systolic_array1/addr_n3_reg[10]/D (SAEDRVT14_FDP_V2LP_0P5)
+                                                          0.01       1.72 r
+  data arrival time                                                  1.72
+
+  clock axi_clk (rise edge)                               2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  clock uncertainty                                      -0.30       1.70
+  My_TPU/systolic_array1/addr_n3_reg[10]/CK (SAEDRVT14_FDP_V2LP_0P5)
+                                                          0.00       1.70 r
+  library setup time                                      0.02       1.72
+  data required time                                                 1.72
+  --------------------------------------------------------------------------
+  data required time                                                 1.72
+  data arrival time                                                 -1.72
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

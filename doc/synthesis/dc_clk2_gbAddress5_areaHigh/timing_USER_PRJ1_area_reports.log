@@ -1,0 +1,153 @@
+ 
+****************************************
+Report : area
+Design : USER_PRJ1
+Version: T-2022.03
+Date   : Mon Jun 17 23:29:06 2024
+****************************************
+
+Library(s) Used:
+
+    saed14rvt_tt0p8v25c (File: /RAID2/COURSE/asoc/asoc020/lab-snps-flow/SAED14_EDK_LAB/lib/stdcell_rvt/db_nldm/saed14rvt_tt0p8v25c.db)
+
+Number of ports:                         8859
+Number of nets:                         82060
+Number of cells:                        71549
+Number of combinational cells:          55944
+Number of sequential cells:             15517
+Number of macros/black boxes:               0
+Number of buf/inv:                      11569
+Number of references:                      32
+
+Combinational area:              22803.840388
+Buf/Inv area:                     8010.914588
+Noncombinational area:           16279.304868
+Macro/Black Box area:                0.000000
+Net Interconnect area:           73714.018122
+
+Total cell area:                 39083.145256
+Total area:                     112797.163378
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area            Local cell area
+                                  -------------------  ------------------------------ 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
+                                  Total       Total    national    national    boxes   Design
+--------------------------------  ----------  -------  ----------  ----------  ------  -------------------------------------------
+USER_PRJ1                         39083.1453    100.0    228.3936    141.7248  0.0000  USER_PRJ1
+My_TPU                             9146.3556     23.4      1.2876      0.0000  0.0000  TPU_ADDR_BITS6
+My_TPU/TPU_fsm1                    3750.7788      9.6   1000.0656    973.7364  0.0000  TPU_fsm_ADDR_BITS6
+My_TPU/TPU_fsm1/add_274              11.1888      0.0     11.1888      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_inc_3_DW01_inc_12
+My_TPU/TPU_fsm1/add_306              11.1888      0.0     11.1888      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_inc_2_DW01_inc_11
+My_TPU/TPU_fsm1/add_318             412.6980      1.1    412.6980      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_add_16
+My_TPU/TPU_fsm1/add_318_I2          412.3872      1.1    412.3872      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_add_18
+My_TPU/TPU_fsm1/add_318_I3          412.6980      1.1    412.6980      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_add_20
+My_TPU/TPU_fsm1/add_318_I4          412.3872      1.1    412.3872      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_add_22
+My_TPU/TPU_fsm1/add_350               9.9012      0.0      9.9012      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_add_3
+My_TPU/TPU_fsm1/add_373               9.9012      0.0      9.9012      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_add_1
+My_TPU/TPU_fsm1/mult_266             84.6264      0.2     74.7252      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW02_mult_0_DW02_mult_16
+My_TPU/TPU_fsm1/mult_266/FS_1         9.9012      0.0      9.9012      0.0000  0.0000  TPU_fsm_ADDR_BITS6_DW01_add_14_DW01_add_46
+My_TPU/systolic_array1             5394.2892     13.8   1021.7328   1072.3488  0.0000  systolic_array
+My_TPU/systolic_array1/P0           189.5880      0.5      1.5540     51.1488  0.0000  block_0
+My_TPU/systolic_array1/P0/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_0_DW01_add_0_DW01_add_14
+My_TPU/systolic_array1/P0/mult_45    98.6124      0.3     86.5356      0.0000  0.0000  block_0_DW02_mult_0
+My_TPU/systolic_array1/P0/mult_45/FS_1
+                                     12.0768      0.0     12.0768      0.0000  0.0000  block_0_DW01_add_1_DW01_add_15
+My_TPU/systolic_array1/P1           195.7152      0.5      1.5540     51.1488  0.0000  block_15
+My_TPU/systolic_array1/P1/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_15_DW01_add_0_DW01_add_42
+My_TPU/systolic_array1/P1/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_15_DW02_mult_0_DW02_mult_14
+My_TPU/systolic_array1/P1/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_15_DW01_add_1_DW01_add_43
+My_TPU/systolic_array1/P10          195.7152      0.5      1.5540     51.1488  0.0000  block_6
+My_TPU/systolic_array1/P10/add_40    38.2728      0.1     38.2728      0.0000  0.0000  block_6_DW01_add_0_DW01_add_26
+My_TPU/systolic_array1/P10/mult_45
+                                    104.7396      0.3     86.5356      0.0000  0.0000  block_6_DW02_mult_0_DW02_mult_6
+My_TPU/systolic_array1/P10/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_6_DW01_add_1_DW01_add_27
+My_TPU/systolic_array1/P11          195.7152      0.5      1.5540     51.1488  0.0000  block_5
+My_TPU/systolic_array1/P11/add_40    38.2728      0.1     38.2728      0.0000  0.0000  block_5_DW01_add_0_DW01_add_24
+My_TPU/systolic_array1/P11/mult_45
+                                    104.7396      0.3     86.5356      0.0000  0.0000  block_5_DW02_mult_0_DW02_mult_5
+My_TPU/systolic_array1/P11/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_5_DW01_add_1_DW01_add_25
+My_TPU/systolic_array1/P12          195.7152      0.5      1.5540     51.1488  0.0000  block_4
+My_TPU/systolic_array1/P12/add_40    38.2728      0.1     38.2728      0.0000  0.0000  block_4_DW01_add_0_DW01_add_22
+My_TPU/systolic_array1/P12/mult_45
+                                    104.7396      0.3     86.5356      0.0000  0.0000  block_4_DW02_mult_0_DW02_mult_4
+My_TPU/systolic_array1/P12/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_4_DW01_add_1_DW01_add_23
+My_TPU/systolic_array1/P13          195.7152      0.5      1.5540     51.1488  0.0000  block_3
+My_TPU/systolic_array1/P13/add_40    38.2728      0.1     38.2728      0.0000  0.0000  block_3_DW01_add_0_DW01_add_20
+My_TPU/systolic_array1/P13/mult_45
+                                    104.7396      0.3     86.5356      0.0000  0.0000  block_3_DW02_mult_0_DW02_mult_3
+My_TPU/systolic_array1/P13/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_3_DW01_add_1_DW01_add_21
+My_TPU/systolic_array1/P14          190.6092      0.5      1.5540     51.1488  0.0000  block_2
+My_TPU/systolic_array1/P14/add_40    38.2728      0.1     38.2728      0.0000  0.0000  block_2_DW01_add_0_DW01_add_18
+My_TPU/systolic_array1/P14/mult_45
+                                     99.6336      0.3     86.5356      0.0000  0.0000  block_2_DW02_mult_0_DW02_mult_2
+My_TPU/systolic_array1/P14/mult_45/FS_1
+                                     13.0980      0.0     13.0980      0.0000  0.0000  block_2_DW01_add_1_DW01_add_19
+My_TPU/systolic_array1/P15          189.5880      0.5      1.5540     51.1488  0.0000  block_1
+My_TPU/systolic_array1/P15/add_40    38.2728      0.1     38.2728      0.0000  0.0000  block_1_DW01_add_0_DW01_add_16
+My_TPU/systolic_array1/P15/mult_45
+                                     98.6124      0.3     86.5356      0.0000  0.0000  block_1_DW02_mult_0_DW02_mult_1
+My_TPU/systolic_array1/P15/mult_45/FS_1
+                                     12.0768      0.0     12.0768      0.0000  0.0000  block_1_DW01_add_1_DW01_add_17
+My_TPU/systolic_array1/P2           195.7152      0.5      1.5540     51.1488  0.0000  block_14
+My_TPU/systolic_array1/P2/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_14_DW01_add_0_DW01_add_38
+My_TPU/systolic_array1/P2/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_14_DW02_mult_0_DW02_mult_12
+My_TPU/systolic_array1/P2/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_14_DW01_add_1_DW01_add_39
+My_TPU/systolic_array1/P3           195.7152      0.5      1.5540     51.1488  0.0000  block_13
+My_TPU/systolic_array1/P3/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_13_DW01_add_0_DW01_add_34
+My_TPU/systolic_array1/P3/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_13_DW02_mult_0_DW02_mult_10
+My_TPU/systolic_array1/P3/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_13_DW01_add_1_DW01_add_35
+My_TPU/systolic_array1/P4           195.7152      0.5      1.5540     51.1488  0.0000  block_12
+My_TPU/systolic_array1/P4/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_12_DW01_add_0_DW01_add_44
+My_TPU/systolic_array1/P4/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_12_DW02_mult_0_DW02_mult_15
+My_TPU/systolic_array1/P4/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_12_DW01_add_1_DW01_add_45
+My_TPU/systolic_array1/P5           195.7152      0.5      1.5540     51.1488  0.0000  block_11
+My_TPU/systolic_array1/P5/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_11_DW01_add_0_DW01_add_40
+My_TPU/systolic_array1/P5/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_11_DW02_mult_0_DW02_mult_13
+My_TPU/systolic_array1/P5/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_11_DW01_add_1_DW01_add_41
+My_TPU/systolic_array1/P6           195.7152      0.5      1.5540     51.1488  0.0000  block_10
+My_TPU/systolic_array1/P6/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_10_DW01_add_0_DW01_add_36
+My_TPU/systolic_array1/P6/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_10_DW02_mult_0_DW02_mult_11
+My_TPU/systolic_array1/P6/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_10_DW01_add_1_DW01_add_37
+My_TPU/systolic_array1/P7           195.7152      0.5      1.5540     51.1488  0.0000  block_9
+My_TPU/systolic_array1/P7/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_9_DW01_add_0_DW01_add_32
+My_TPU/systolic_array1/P7/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_9_DW02_mult_0_DW02_mult_9
+My_TPU/systolic_array1/P7/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_9_DW01_add_1_DW01_add_33
+My_TPU/systolic_array1/P8           195.7152      0.5      1.5540     51.1488  0.0000  block_8
+My_TPU/systolic_array1/P8/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_8_DW01_add_0_DW01_add_30
+My_TPU/systolic_array1/P8/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_8_DW02_mult_0_DW02_mult_8
+My_TPU/systolic_array1/P8/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_8_DW01_add_1_DW01_add_31
+My_TPU/systolic_array1/P9           195.7152      0.5      1.5540     51.1488  0.0000  block_7
+My_TPU/systolic_array1/P9/add_40     38.2728      0.1     38.2728      0.0000  0.0000  block_7_DW01_add_0_DW01_add_28
+My_TPU/systolic_array1/P9/mult_45   104.7396      0.3     86.5356      0.0000  0.0000  block_7_DW02_mult_0_DW02_mult_7
+My_TPU/systolic_array1/P9/mult_45/FS_1
+                                     18.2040      0.0     18.2040      0.0000  0.0000  block_7_DW01_add_1_DW01_add_29
+My_TPU/systolic_array1/add_208       23.2656      0.1     23.2656      0.0000  0.0000  systolic_array_DW01_inc_7_DW01_inc_8
+My_TPU/systolic_array1/add_209       23.2656      0.1     23.2656      0.0000  0.0000  systolic_array_DW01_inc_6_DW01_inc_7
+My_TPU/systolic_array1/add_210       23.2656      0.1     23.2656      0.0000  0.0000  systolic_array_DW01_inc_5_DW01_inc_6
+My_TPU/systolic_array1/add_211       23.2656      0.1     23.2656      0.0000  0.0000  systolic_array_DW01_inc_4_DW01_inc_5
+My_TPU/systolic_array1/add_213       23.2656      0.1     23.2656      0.0000  0.0000  systolic_array_DW01_inc_3_DW01_inc_4
+My_TPU/systolic_array1/add_214       23.2656      0.1     23.2656      0.0000  0.0000  systolic_array_DW01_inc_2_DW01_inc_3
+My_TPU/systolic_array1/add_215       23.2656      0.1     23.2656      0.0000  0.0000  systolic_array_DW01_inc_1_DW01_inc_2
+My_TPU/systolic_array1/add_216       23.2656      0.1     23.2656      0.0000  0.0000  systolic_array_DW01_inc_0_DW01_inc_1
+gbuff_A                            4687.9297     12.0   2475.7441   2212.1857  0.0000  global_buffer_ADDR_BITS6_DATA_BITS32_0
+gbuff_B                            4668.3937     11.9   2456.2081   2212.1857  0.0000  global_buffer_ADDR_BITS6_DATA_BITS32_1
+gbuff_C                           20210.3478     51.7  11361.6051   8848.7427  0.0000  global_buffer_ADDR_BITS6_DATA_BITS128
+--------------------------------  ----------  -------  ----------  ----------  ------  -------------------------------------------
+Total                                                  22803.8404  16279.3049  0.0000
+
+1
